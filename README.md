@@ -1,6 +1,6 @@
 # C🥚🥚P
 
-🐔**COOP**🐔 is a tower defence game made for submission to the [**Mini Jam 150**](<[text](https://itch.io/jam/mini-jam-150-magic)>) game jam. The limitation for the game was 💡 **_"Light is the way"_** 🔦, with an optional theme of 🔮**Magic** 🪄. The game can be played live [**here**](INSERTLINK).
+🐔**COOP**🐔 is a tower defence game made for submission to the [**Mini Jam 150**](<[text](https://itch.io/jam/mini-jam-150-magic)>) game jam. The limitation for the game was 💡 **_"Light is the way"_** 🔦, with an optional theme of 🔮**Magic** 🪄. The game can be played live [**here**](https://ofthemasses.itch.io/coop).
 
 ## 1. Tools Used
 
@@ -11,7 +11,7 @@
 
 ## 2. Playing
 
-**COOP** is hosted on [itch.io](https://itch.io/), and can be downloaded [**here**](INSERTLINK) or played live through [**this link**](INSERTLINK).
+**COOP** is hosted on [itch.io](https://itch.io/), and can be downloaded or played live [**here**](https://ofthemasses.itch.io/coop).
 
 ## 3. Authors
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=5 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
-[ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.gd" id="2_66a3j"]
+[ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
+[ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.cs" id="2_b2xjl"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -10,6 +11,7 @@ _data = {
 point_count = 15
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_gvxe0")
 
 [node name="TileMap" parent="." instance=ExtResource("1_4c85n")]
 
@@ -18,4 +20,4 @@ point_count = 15
 [node name="Path2D" type="Path2D" parent="Pathing"]
 position = Vector2(-478, -79)
 curve = SubResource("Curve2D_i5e8c")
-script = ExtResource("2_66a3j")
+script = ExtResource("2_b2xjl")

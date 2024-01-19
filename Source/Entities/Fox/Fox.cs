@@ -11,11 +11,13 @@ public abstract partial class Fox : PathFollow2D
 	protected float BlindSpeed;
 	protected float FleeSpeed;
 
-	protected int BlindLevel;
+	protected double BlindLevel;
 	protected double ElapsedBlindness;
 	protected double MaxElapsedBlindness;
-	protected double ElapsedRecovery;
-	protected double MaxElapsedRecovery;
+	
+	protected double RecoveryRate;
+	protected double RecoverBlindLevel;
+	
 	protected FoxState State;
 	
 	
@@ -24,7 +26,7 @@ public abstract partial class Fox : PathFollow2D
 	{
 		this.ProgressRatio = 0.0f;
 		this.ElapsedBlindness = 0.0;
-		this.ElapsedRecovery = 0.0;
+		this.BlindLevel = 0.0;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,19 +49,45 @@ public abstract partial class Fox : PathFollow2D
 	private void Normal(double delta)
 	{
 		this.ProgressRatio += NormalSpeed * (float)delta;
+		
 		if (this.ProgressRatio > PATH_END)
 		{
 			this.Free();
         }
+		
+		// Blind the fox at full blindness
 		if (BlindLevel >= 100)
-        {
+		{
+			this.ElapsedBlindness = 0.0;
 			this.State = FoxState.BLIND;
         }
+
+		// Recover blindness
+		if (!(BlindLevel > 0)) return;
+		this.BlindLevel -= this.RecoveryRate * delta;
+		if (this.BlindLevel < 0.0)
+		{
+			this.BlindLevel = 0.0;
+		}
 	}
 
 	private void Blind(double delta)
 	{
+		this.ElapsedBlindness += delta;
+		this.BlindLevel -= this.RecoveryRate * delta;
 		this.ProgressRatio += BlindSpeed * (float)delta;
+		
+		// Fox recovers at RecoverBlindLevel
+		if (this.BlindLevel < RecoverBlindLevel)
+		{
+			this.State = FoxState.NORMAL;
+		}
+		
+		// Fox flees if blind for too long
+		if (this.ElapsedBlindness >= this.MaxElapsedBlindness)
+		{
+			this.State = FoxState.FLEE;
+		}
 	}
 
 	private void Flee(double delta)

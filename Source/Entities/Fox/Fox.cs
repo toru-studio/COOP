@@ -92,6 +92,7 @@ public abstract partial class Fox : PathFollow2D
 
 	private void Flee(double delta)
 	{
+		this.GetChild<Sprite2D>(0).Scale = new Vector2(-1, 1);
 		this.ProgressRatio += FleeSpeed * (float)delta;
 		if (this.ProgressRatio < PATH_START)
 		{

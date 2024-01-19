@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cos5mlsp4kk4d"]
+
+[ext_resource type="Script" path="res://Fox.gd" id="1_2cnx5"]
+[ext_resource type="Texture2D" uid="uid://cg5sbnywpca5i" path="res://Assets/Images/Enemies/Fox.png" id="2_ep0r8"]
+
+[sub_resource type="Curve2D" id="Curve2D_i5e8c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 487, 304, -177.192, 72.5416, 177.192, -72.5416, 903, 78, 0, 0, 0, 0, 1445, 79, -97.515, -121.299, 97.515, 121.299, 1872, 297, 0, -121.299, 0, 121.299, 1859, 827, 0, 0, 0, 0, 2369, 821)
+}
+point_count = 6
+
+[node name="Fox" type="Node2D"]
+script = ExtResource("1_2cnx5")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(16, -38)
+curve = SubResource("Curve2D_i5e8c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(594.174, 238.344)
+rotation = -0.5346
+progress = 125.697
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-1.35608, 0.401344)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ep0r8")

@@ -14,18 +14,18 @@ point_count = 15
 
 [node name="TileMap" parent="." instance=ExtResource("1_4c85n")]
 
-[node name="Fox" type="Node2D" parent="."]
-script = ExtResource("2_glknh")
+[node name="Pathing" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="Fox"]
+[node name="Path2D" type="Path2D" parent="Pathing"]
 position = Vector2(-478, -79)
 curve = SubResource("Curve2D_i5e8c")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Fox/Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Pathing/Path2D"]
 position = Vector2(507.661, 292.666)
 rotation = 0.0293372
 progress = 125.697
+script = ExtResource("2_glknh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Fox/Path2D/PathFollow2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Pathing/Path2D/PathFollow2D"]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_74ij0")

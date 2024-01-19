@@ -5,7 +5,7 @@ var path_end : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.progress_ratio = 0.0
+	self.progress_ratio = randf()
 	path_end = .985
 	pass # Replace with function body.
 

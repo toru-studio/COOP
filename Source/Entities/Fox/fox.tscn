@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcb3upc4dhinq"]
+
+[ext_resource type="Script" path="res://Source/Entities/Fox/Fox.gd" id="1_bvdos"]
+[ext_resource type="Texture2D" uid="uid://cg5sbnywpca5i" path="res://Assets/Images/Enemies/Fox.png" id="2_4dvuy"]
+
+[node name="Fox" type="PathFollow2D"]
+position = Vector2(507.661, 292.666)
+rotation = 0.0293372
+progress = 125.697
+script = ExtResource("1_bvdos")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_4dvuy")
+
+[node name="_Timer_19728" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

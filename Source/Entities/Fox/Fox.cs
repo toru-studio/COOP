@@ -65,7 +65,7 @@ public abstract partial class Fox : PathFollow2D
 	private void Flee(double delta)
 	{
 		this.ProgressRatio += FleeSpeed * (float)delta;
-		if (this.ProgressRatio < PATH_END)
+		if (this.ProgressRatio < PATH_START)
 		{
 			this.Free();
 		}

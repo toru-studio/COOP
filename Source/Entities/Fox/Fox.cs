@@ -63,7 +63,7 @@ public abstract partial class Fox : PathFollow2D
         }
 
 		// Recover blindness
-		if (!(BlindLevel > 0)) return;
+		if (BlindLevel <= 0) return;
 		this.BlindLevel -= this.RecoveryRate * delta;
 		if (this.BlindLevel < 0.0)
 		{

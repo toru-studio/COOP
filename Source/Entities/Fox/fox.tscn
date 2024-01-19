@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgqxs05ea4nqv"]
 
-[ext_resource type="Script" path="res://Source/Entities/Fox/Fox.cs" id="1_f28uf"]
+[ext_resource type="Script" path="res://Source/Entities/Fox/BasicFox.cs" id="1_rtb5k"]
 [ext_resource type="Texture2D" uid="uid://cg5sbnywpca5i" path="res://Assets/Images/Enemies/Fox.png" id="2_4dvuy"]
 
 [node name="Fox" type="PathFollow2D"]
-script = ExtResource("1_f28uf")
+script = ExtResource("1_rtb5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4dvuy")

@@ -1,7 +1,7 @@
 ﻿using COOP.Source.Entities.Fox;
 using Godot;
 
-public class BasicFox : Fox
+public partial class BasicFox : Fox
 {
     public override void _Ready()
     {

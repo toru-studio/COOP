@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwffbvs0qeifs"]
+
+[ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
+[ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.gd" id="2_66a3j"]
+
+[sub_resource type="Curve2D" id="Curve2D_i5e8c"]
+_data = {
+"points": PackedVector2Array(-36.9814, 3.26477, 36.9814, -3.26477, 382, 291, 0, 0, 0, 0, 768, 302, 0, 0, 0, 0, 765, 236, 0, 0, 0, 0, 889, 237, 0, 0, 0, 0, 890, 366, 0, 0, 0, 0, 830, 366, 0, 0, 0, 0, 828, 493, 0, 0, 0, 0, 1016, 489, 0, 0, 0, 0, 1022, 232, 0, 0, 0, 0, 1214, 237, 0, 0, 0, 0, 1212, 299, 0, 0, 0, 0, 1470, 304, 0, 0, 0, 0, 1468, 555, 0, 0, 0, 0, 1214, 552, 0, 0, 0, 0, 1212, 787)
+}
+point_count = 15
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_4c85n")]
+
+[node name="Pathing" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Pathing"]
+position = Vector2(-478, -79)
+curve = SubResource("Curve2D_i5e8c")
+script = ExtResource("2_66a3j")

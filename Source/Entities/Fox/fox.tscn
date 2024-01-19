@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgqxs05ea4nqv"]
+
+[ext_resource type="Script" path="res://Source/Entities/Fox/Fox.gd" id="1_bvdos"]
+[ext_resource type="Texture2D" uid="uid://cg5sbnywpca5i" path="res://Assets/Images/Enemies/Fox.png" id="2_4dvuy"]
+
+[node name="Fox" type="PathFollow2D"]
+script = ExtResource("1_bvdos")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4dvuy")
+
+[node name="_Timer_83507" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

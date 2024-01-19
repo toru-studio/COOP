@@ -11,7 +11,7 @@
 
 ## 2. Playing
 
-**COOP** is hosted on [itch.io](https://itch.io/), and can be downloaded or played live [**here**](https://ofthemasses.itch.io/coop).
+**COOP** is hosted on [**itch.io**](https://itch.io/), and can be downloaded or played live [**here**](https://ofthemasses.itch.io/coop).
 
 ## 3. Authors
 

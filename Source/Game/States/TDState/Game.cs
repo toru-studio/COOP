@@ -6,11 +6,13 @@ public partial class Game : Node2D
 	private FoxSpawner Spawner;
 	private Label CurrencyLabel;
 	private int Currency;
+	private Random Random;
 
 	private double test_elapsed;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Random = new Random();
 		test_elapsed = 0.0;
 		
 		// Link Nodes
@@ -55,5 +57,10 @@ public partial class Game : Node2D
 	{
 		Currency += value;
 		CurrencyLabel.Text = Convert.ToString(Currency);
+	}
+
+	public double GetRandom()
+	{
+		return Random.NextDouble();
 	}
 }

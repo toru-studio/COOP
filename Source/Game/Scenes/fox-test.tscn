@@ -26,20 +26,27 @@ script = ExtResource("2_b2xjl")
 [node name="FX" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="FX"]
-color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="FX"]
 color = Color(0.313726, 0.407843, 0.52549, 1)
-energy = 0.6
+energy = 0.75
 shadow_color = Color(0, 0, 0, 0.780392)
 
 [node name="PointLight2D" type="PointLight2D" parent="FX"]
-position = Vector2(386, 353)
-scale = Vector2(3.5625, 3.35938)
-color = Color(0.462745, 0.329412, 0, 1)
-energy = 1.5
-blend_mode = 2
+position = Vector2(354, 221)
+scale = Vector2(2.41146, 2.41016)
+color = Color(0.980392, 0.717647, 0, 1)
+energy = 0.75
 shadow_enabled = true
-shadow_color = Color(0.121569, 0.137255, 0.129412, 0.580392)
+texture = ExtResource("4_ne3cs")
+texture_scale = 1.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="FX"]
+position = Vector2(478, 221)
+scale = Vector2(2.41146, 2.41016)
+color = Color(0.980392, 0.717647, 0, 1)
+energy = 0.75
+shadow_enabled = true
 texture = ExtResource("4_ne3cs")
 texture_scale = 1.5

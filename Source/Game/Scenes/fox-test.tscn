@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=10 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
 [ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.cs" id="2_b2xjl"]
 [ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="4_gl4f2"]
+[ext_resource type="AudioStream" uid="uid://ditoa1o73icxs" path="res://Assets/Sounds/Environment/Crickets.mp3" id="5_bd7qt"]
+[ext_resource type="AudioStream" uid="uid://bu5r2awo8mt4w" path="res://Assets/Sounds/Environment/537587__craigsays__red-fox-screeching.mp3" id="5_octwf"]
+[ext_resource type="Script" path="res://Source/Game/Scenes/Audio.gd" id="6_sgvqy"]
+[ext_resource type="AudioStream" uid="uid://b3x76k5poo1k2" path="res://Assets/Sounds/Music/chicken-not-chicken.mp3" id="8_wjiya"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -33,3 +37,20 @@ theme_override_font_sizes/font_size = 20
 [node name="Leaf" type="Sprite2D" parent="."]
 position = Vector2(1000, 28)
 texture = ExtResource("4_gl4f2")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_sgvqy")
+
+[node name="Crickets" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("5_bd7qt")
+autoplay = true
+bus = &"High Pass"
+
+[node name="FoxNoises" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("5_octwf")
+bus = &"High Pass"
+
+[node name="Music" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("8_wjiya")
+volume_db = -8.19
+autoplay = true

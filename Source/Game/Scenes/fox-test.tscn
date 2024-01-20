@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=6 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
 [ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.cs" id="2_b2xjl"]
+[ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="4_gl4f2"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -28,3 +29,7 @@ offset_top = 9.0
 offset_right = 1139.0
 offset_bottom = 32.0
 theme_override_font_sizes/font_size = 20
+
+[node name="Leaf" type="Sprite2D" parent="."]
+position = Vector2(1000, 28)
+texture = ExtResource("4_gl4f2")

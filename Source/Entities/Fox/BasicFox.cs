@@ -35,15 +35,11 @@ public partial class BasicFox : Fox
             GD.Print("No Animation Player Found");
         }
 
-        this.AnimationPlayer.Play("walk cycle");
 
         // Random Chance Of Flower
         Game game = (Game)this.GetTree().CurrentScene;
         HasFlower = game.GetRandom() < 0.3;
-        if (HasFlower)
-        {
-            this.Sprite2D.Texture = GD.Load<Texture2D>("res://Assets/Images/Enemies/FoxWithFlower.png");
-        }
+        this.AnimationPlayer.Play(HasFlower ? "Flower Walk Cycle" : "walk cycle");
     }
     public override void ShineOn(double strength)
     {
@@ -55,7 +51,7 @@ public partial class BasicFox : Fox
         if (BlindLevel >= 100)
         {
             double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
-            this.AnimationPlayer.Play("Blind Walk Cycle");
+            this.AnimationPlayer.Play(HasFlower ? "Flower Blind Walk Cycle" : "Blind Walk Cycle");
             this.AnimationPlayer.Seek(curFrame);
         }
         base.Normal(delta);
@@ -66,7 +62,7 @@ public partial class BasicFox : Fox
         if (this.BlindLevel < RecoverBlindLevel)
         {
             double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
-            this.AnimationPlayer.Play("walk cycle");
+            this.AnimationPlayer.Play(HasFlower ? "Flower Walk Cycle" : "walk cycle");
             this.AnimationPlayer.Seek(curFrame);
         }
         base.Blind(delta);
@@ -85,8 +81,10 @@ public partial class BasicFox : Fox
             flowerSprite.RotationDegrees = 360 * (float)game.GetRandom();
                                            
             this.GetTree().CurrentScene.AddChild(flower);
-            
-            this.Sprite2D.Texture = GD.Load<Texture2D>("res://Assets/Images/Enemies/Fox.png");
+
+            double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
+            this.AnimationPlayer.Play("walk cycle");
+            this.AnimationPlayer.Seek(curFrame);
             HasFlower = false;
         }
     }

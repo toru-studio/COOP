@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7qoc1ruji6sy"]
 
 [ext_resource type="Texture2D" uid="uid://12w7318u8pyx" path="res://Assets/Images/Entities/Flower.png" id="1_bamkh"]
-[ext_resource type="Script" path="res://Source/Entities/Items/Sprite2D.gd" id="2_r0q80"]
+[ext_resource type="Script" path="res://Source/Entities/Items/Flower.gd" id="2_rs68y"]
 
 [sub_resource type="Animation" id="Animation_5sr0v"]
 resource_name = "PickUp"
@@ -45,7 +45,7 @@ _data = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_bamkh")
-script = ExtResource("2_r0q80")
+script = ExtResource("2_rs68y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")

@@ -2,7 +2,8 @@ extends Sprite2D
 
 
 func _process(delta):
-	if _is_mouse_over():
+	# Mouse button requirement should be removed in final version
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and _is_mouse_over():
 		get_tree().root.get_child(0).AddCurrency(1)
 		self.free();
 

@@ -6,6 +6,6 @@
 [node name="Flower" type="Node"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2, 3)
 texture = ExtResource("1_bamkh")
 script = ExtResource("2_r0q80")

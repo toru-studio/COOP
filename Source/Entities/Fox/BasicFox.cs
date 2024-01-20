@@ -6,6 +6,7 @@ public partial class BasicFox : Fox
 {
     private bool HasFlower;
     private Sprite2D Sprite2D;
+    private AnimationPlayer AnimationPlayer;
     public override void _Ready()
     {
         base._Ready();
@@ -25,6 +26,17 @@ public partial class BasicFox : Fox
             GD.Print("No Sprite 2D on Fox");
         }
 
+        try
+        {
+            this.AnimationPlayer = (AnimationPlayer)this.FindChild("AnimationPlayer");
+        }
+        catch (Exception e)
+        {
+            GD.Print("No Animation Player Found");
+        }
+
+        this.AnimationPlayer.Play("walk cycle");
+
         // Random Chance Of Flower
         Game game = (Game)this.GetTree().CurrentScene;
         HasFlower = game.GetRandom() < 0.3;
@@ -38,6 +50,27 @@ public partial class BasicFox : Fox
         base.BlindLevel += strength;
     }
 
+    protected override void Normal(double delta)
+    {
+        if (BlindLevel >= 100)
+        {
+            double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
+            this.AnimationPlayer.Play("Blind Walk Cycle");
+            this.AnimationPlayer.Seek(curFrame);
+        }
+        base.Normal(delta);
+    }
+
+    protected override void Blind(double delta)
+    {
+        if (this.BlindLevel < RecoverBlindLevel)
+        {
+            double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
+            this.AnimationPlayer.Play("walk cycle");
+            this.AnimationPlayer.Seek(curFrame);
+        }
+        base.Blind(delta);
+    }
     protected override void Flee(double delta)
     {
         base.Flee(delta);

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
 [ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.cs" id="2_b2xjl"]
 [ext_resource type="Texture2D" uid="uid://v074w01hn6kt" path="res://Assets/Images/UI/spot.png" id="4_ne3cs"]
+[ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="4_gl4f2"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -50,3 +51,13 @@ energy = 0.75
 shadow_enabled = true
 texture = ExtResource("4_ne3cs")
 texture_scale = 1.5
+[node name="Currency" type="Label" parent="."]
+offset_left = 1045.0
+offset_top = 9.0
+offset_right = 1139.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 20
+
+[node name="Leaf" type="Sprite2D" parent="."]
+position = Vector2(1000, 28)
+texture = ExtResource("4_gl4f2")

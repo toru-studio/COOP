@@ -51,7 +51,7 @@ public partial class BasicFox : Fox
         if (BlindLevel >= 100)
         {
             double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
-            this.AnimationPlayer.Play(HasFlower ? "Flower Blind Walk Cycle" : "Blind Walk Cycle");
+            this.AnimationPlayer.Play(HasFlower ? "Blind Flower Walk Cycle" : "Blind Walk Cycle");
             this.AnimationPlayer.Seek(curFrame);
         }
         base.Normal(delta);

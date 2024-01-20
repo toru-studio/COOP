@@ -102,7 +102,7 @@ script = ExtResource("1_rtb5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 4.71239
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_4855q")
 hframes = 2
 vframes = 4

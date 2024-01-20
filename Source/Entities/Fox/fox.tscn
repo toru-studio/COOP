@@ -1,11 +1,5 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgqxs05ea4nqv"]
 
-[ext_resource type="Script" path="res://Source/Entities/Fox/Fox.gd" id="1_bvdos"]
-[ext_resource type="Texture2D" uid="uid://bvy43ld7fsds" path="res://Assets/Images/Enemies/Fox.png" id="2_4dvuy"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m41g4"]
-cull_mode = 1
-polygon = PackedVector2Array(9, -9, 6, -1, -14, -1, -16, -2, -20, -8, -23, -8, -25, -6, -24, -2, -19, 2, -15, 2, -15, 6, -11, 7, -11, 12, -9, 12, -9, 7, 3, 7, 3, 12, 6, 12, 5, 7, 8, 7, 8, 3, 9, 2, 19, 3, 18, -1, 15, -5, 11, -5, 11, -8, 10, -9)
 [ext_resource type="Script" path="res://Source/Entities/Fox/BasicFox.cs" id="1_rtb5k"]
 [ext_resource type="Texture2D" uid="uid://cg5sbnywpca5i" path="res://Assets/Images/Enemies/Fox.png" id="2_4dvuy"]
 [ext_resource type="Script" path="res://Source/Entities/Fox/FoxTestClicking.gd" id="3_80hjl"]
@@ -20,6 +14,3 @@ script = ExtResource("3_80hjl")
 [node name="_Timer_83507" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_m41g4")

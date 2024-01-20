@@ -46,7 +46,7 @@ public abstract partial class Fox : PathFollow2D
 		}
 	}
 
-	private void Normal(double delta)
+	protected virtual void Normal(double delta)
 	{
 		this.ProgressRatio += NormalSpeed * (float)delta;
 		
@@ -71,7 +71,7 @@ public abstract partial class Fox : PathFollow2D
 		}
 	}
 
-	private void Blind(double delta)
+	protected virtual void Blind(double delta)
 	{
 		this.ElapsedBlindness += delta;
 		this.BlindLevel -= this.RecoveryRate * delta;
@@ -90,7 +90,7 @@ public abstract partial class Fox : PathFollow2D
 		}
 	}
 
-	private void Flee(double delta)
+	protected virtual void Flee(double delta)
 	{
 		this.GetChild<Sprite2D>(0).Scale = new Vector2(-1, 1);
 		this.ProgressRatio += FleeSpeed * (float)delta;

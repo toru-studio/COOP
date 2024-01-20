@@ -11,7 +11,7 @@ public partial class BasicFox : Fox
         base._Ready();
         base.NormalSpeed = 0.05f;
         base.BlindSpeed = -0.02f;
-        base.FleeSpeed = -0.3f;
+        base.FleeSpeed = -0.05f;
         base.State = FoxState.NORMAL;
         base.MaxElapsedBlindness = 3.0;
         base.RecoveryRate = 20.0;
@@ -36,5 +36,20 @@ public partial class BasicFox : Fox
     public override void ShineOn(double strength)
     {
         base.BlindLevel += strength;
+    }
+
+    protected override void Flee(double delta)
+    {
+        base.Flee(delta);
+        if (HasFlower)
+        {
+            PackedScene flowerScene = GD.Load<PackedScene>("res://Source/Entities/Items/flower.tscn");
+            Node flower = flowerScene.Instantiate();
+            Sprite2D flowerSprite = flower.GetChild<Sprite2D>(0);
+            flowerSprite.Position = this.GlobalPosition;
+            this.GetTree().CurrentScene.AddChild(flower);
+            this.Sprite2D.Texture = GD.Load<Texture2D>("res://Assets/Images/Enemies/Fox.png");
+            HasFlower = false;
+        }
     }
 }

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7qoc1ruji6sy"]
+
+[ext_resource type="Texture2D" uid="uid://12w7318u8pyx" path="res://Assets/Images/Entities/Flower.png" id="1_bamkh"]
+[ext_resource type="Script" path="res://Source/Entities/Items/Sprite2D.gd" id="2_r0q80"]
+
+[node name="Flower" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_bamkh")
+script = ExtResource("2_r0q80")

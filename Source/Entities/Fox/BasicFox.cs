@@ -46,8 +46,13 @@ public partial class BasicFox : Fox
             PackedScene flowerScene = GD.Load<PackedScene>("res://Source/Entities/Items/flower.tscn");
             Node flower = flowerScene.Instantiate();
             Sprite2D flowerSprite = flower.GetChild<Sprite2D>(0);
+
+            Game game = (Game)this.GetTree().CurrentScene;
             flowerSprite.Position = this.GlobalPosition;
+            flowerSprite.RotationDegrees = 360 * (float)game.GetRandom();
+                                           
             this.GetTree().CurrentScene.AddChild(flower);
+            
             this.Sprite2D.Texture = GD.Load<Texture2D>("res://Assets/Images/Enemies/Fox.png");
             HasFlower = false;
         }

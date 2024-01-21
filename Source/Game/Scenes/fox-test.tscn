@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=14 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://b3x76k5poo1k2" path="res://Assets/Sounds/Music/chicken-not-chicken.mp3" id="8_wjiya"]
 [ext_resource type="PackedScene" uid="uid://bst6i6b2milk4" path="res://Source/Entities/Towers/light_tower.tscn" id="9_g7wd6"]
 [ext_resource type="PackedScene" uid="uid://cq5ygcqvpnety" path="res://Source/UI/light_tower_panel.tscn" id="10_nrxjj"]
+[ext_resource type="PackedScene" uid="uid://dtjvuncuqyg4u" path="res://Source/UI/flame_tower_panel.tscn" id="11_8ah54"]
+[ext_resource type="PackedScene" uid="uid://dnkga8lboee5f" path="res://Source/UI/lightning_tower_panel.tscn" id="12_t71ih"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -91,4 +93,10 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
 [node name="LightTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("10_nrxjj")]
+layout_mode = 2
+
+[node name="FlameTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("11_8ah54")]
+layout_mode = 2
+
+[node name="LightTowerPanel2" parent="Panel/FlowContainer" instance=ExtResource("12_t71ih")]
 layout_mode = 2

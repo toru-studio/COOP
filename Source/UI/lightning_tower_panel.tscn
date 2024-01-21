@@ -1,25 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq5ygcqvpnety"]
+[gd_scene load_steps=4 format=3 uid="uid://dnkga8lboee5f"]
 
-[ext_resource type="Script" path="res://Source/UI/TowerPanel.gd" id="1_3h05k"]
-[ext_resource type="Texture2D" uid="uid://ceidq0bdpyih8" path="res://Assets/Images/Towers/Tower.png" id="2_bstaa"]
-[ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="3_wxivs"]
+[ext_resource type="Script" path="res://Source/UI/TowerPanel.gd" id="1_2arp6"]
+[ext_resource type="Texture2D" uid="uid://bikk5oalgc2v1" path="res://Assets/Images/Towers/LightningTower.png" id="2_qa68v"]
+[ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="3_4f4v3"]
 
-[node name="LightTowerPanel" type="Panel"]
+[node name="LightningTowerPanel" type="Panel"]
 custom_minimum_size = Vector2(160, 160)
 offset_right = 80.0
 offset_bottom = 80.0
-script = ExtResource("1_3h05k")
+script = ExtResource("1_2arp6")
 
-[node name="light_tower" type="Sprite2D" parent="."]
+[node name="lightning_tower" type="Sprite2D" parent="."]
 position = Vector2(82, 77)
-scale = Vector2(1.64063, 1.64063)
-texture = ExtResource("2_bstaa")
+scale = Vector2(1.641, 1.641)
+texture = ExtResource("2_qa68v")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 24.0
-text = "Light Tower"
+text = "Lightning Tower"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -32,13 +32,12 @@ offset_bottom = 161.0
 
 [node name="Label2" type="Label" parent="HSplitContainer"]
 layout_mode = 2
-text = "5"
+text = "10"
 horizontal_alignment = 1
 
 [node name="Leaf" type="Sprite2D" parent="HSplitContainer"]
 position = Vector2(91.75, 21.25)
 scale = Vector2(0.351562, 0.351562)
-texture = ExtResource("3_wxivs")
+texture = ExtResource("3_4f4v3")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="ready" from="." to="." method="_on_ready"]

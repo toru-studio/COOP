@@ -87,12 +87,17 @@ public abstract partial class Fox : PathFollow2D
 		if (this.ElapsedBlindness >= this.MaxElapsedBlindness)
 		{
 			this.State = FoxState.FLEE;
+			Sprite2D sprite = this.GetChild<Sprite2D>(0);
+			sprite.Scale = new Vector2(0.025f, -0.025f);
+			float prevLength = this.GetParent<Path2D>().Curve.GetBakedLength();
+			this.Reparent(this.GetTree().CurrentScene.FindChild("Pathing").FindChild("FleePath2D"));
+			this.ProgressRatio = this.ProgressRatio * (this.GetParent<Path2D>().Curve.GetBakedLength() / prevLength);
 		}
 	}
 
 	protected virtual void Flee(double delta)
 	{
-		this.GetChild<Sprite2D>(0).Scale = new Vector2((float)0.025, (float)-0.025);
+		
 		this.ProgressRatio += FleeSpeed * (float)delta;
 		if (this.ProgressRatio < PATH_START)
 		{

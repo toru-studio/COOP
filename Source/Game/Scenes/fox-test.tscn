@@ -61,7 +61,6 @@ stream = ExtResource("8_wjiya")
 mix_target = 1
 
 [node name="Towers" type="Node2D" parent="."]
-visible = false
 
 [node name="LightTower" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(452, 182)

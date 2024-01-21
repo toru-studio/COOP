@@ -15,7 +15,13 @@
 
 ## 3. Authors
 
--   **Finlay Metcalfe** - _Programming_
+-   **Finlay Metcalfe** - _Programming & Music/SFX_
 -   **Nathan Bridge-Earney** - _Programming_
 -   **Holly Stone** - _Art_
 -   **Sam Mata** - _UI & Lighting_
+
+## 4. Licensing
+
+-  **Code** - All code is held under the AGPLv3 License.
+-  **Art** - All art is held under copyright to Toru Studio.
+-  **Music & SFX** - All music and sound effects are held under the Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) License.

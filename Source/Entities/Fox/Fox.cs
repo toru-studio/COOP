@@ -20,7 +20,6 @@ public abstract partial class Fox : PathFollow2D
 	
 	protected FoxState State;
 	
-	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -89,9 +88,15 @@ public abstract partial class Fox : PathFollow2D
 			this.State = FoxState.FLEE;
 			Sprite2D sprite = this.GetChild<Sprite2D>(0);
 			sprite.Scale = new Vector2(0.025f, -0.025f);
+
 			float prevLength = this.GetParent<Path2D>().Curve.GetBakedLength();
 			this.Reparent(this.GetTree().CurrentScene.FindChild("Pathing").FindChild("FleePath2D"));
-			this.ProgressRatio = this.ProgressRatio * (this.GetParent<Path2D>().Curve.GetBakedLength() / prevLength);
+			this.ProgressRatio =
+				this.ProgressRatio * (this.GetParent<Path2D>().Curve.GetBakedLength() / prevLength);
+
+			// AnimationPlayer ap = (AnimationPlayer)this.FindChild("AnimationPlayer");
+			// ap.AnimationFinished += FixAnimation;
+			// ap.Play("Switch Lanes");
 		}
 	}
 
@@ -104,6 +109,15 @@ public abstract partial class Fox : PathFollow2D
 			this.Free();
 		}
 	}
+	//
+	// public void FixAnimation(StringName animName)
+	// {
+	// 	if (animName != "Switch Lanes") return;
+	// 	
+	// 	AnimationPlayer ap = (AnimationPlayer)this.FindChild("AnimationPlayer");
+	// 	ap.AnimationFinished -= FixAnimation;
+	// 	ap.Play("Blind Walk Cycle");
+	// }
 	
 	public abstract void ShineOn(double strength);
 }

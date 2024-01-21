@@ -7,7 +7,7 @@
 radius = 189.003
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
-radius = 181.025
+radius = 189.003
 
 [node name="LightningTower" type="Node2D"]
 script = ExtResource("1_a1i4u")

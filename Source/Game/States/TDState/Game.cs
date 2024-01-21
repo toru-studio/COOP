@@ -41,7 +41,7 @@ public partial class Game : Node2D
 	public override void _Process(double delta)
 	{
 		test_elapsed += delta;
-		if (test_elapsed > .1)
+		if (test_elapsed > 1.0)
 		{
 			this.Spawner.AddFox(GD.Load<PackedScene>("res://Source/Entities/Fox/fox.tscn"));
 			test_elapsed = 0.0;

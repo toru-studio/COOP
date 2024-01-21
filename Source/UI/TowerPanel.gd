@@ -4,16 +4,10 @@ var currImageCopy
 var towerScene
 
 func _on_ready():
-	#var towerType = get_child(0).name TODO Uncomment when other tower scenes created
-	var towerType = "light_tower"
-	var towerPath = "res://Source/Entities/Towers/"+towerType+".tscn"
-	towerScene = load(towerPath)
-
-
+	var towerName = get_child(0).name
+	towerScene = load("res://Source/Entities/Towers/"+towerName+".tscn")
+	
 func _on_gui_input(event):
-	if	towerScene == null: #TODO Remove when the other tower scenes created
-		return
-	var tempTower = towerScene.instantiate()
 	if event is InputEventMouseButton and event.button_mask == 1:
 		currImageCopy = get_child(0).duplicate()
 		currImageCopy.global_position = event.global_position
@@ -23,10 +17,17 @@ func _on_gui_input(event):
 		currImageCopy.global_position = event.global_position
 
 	elif event is InputEventMouseButton and event.button_mask == 0:
-		get_tree().current_scene.add_child(tempTower)
-		tempTower.global_position = event.global_position
-		currImageCopy.queue_free()	
-		
+		var tower = towerScene.instantiate()
+		get_tree().current_scene.add_child(tower)
+		tower.global_position = event.global_position
+		currImageCopy.queue_free()
+	
 
-
+#func _on_gui_input(event):
+#	print(get_child(0).name)
+#	tempTower = flameTowerScene.instantiate()
+#	if event is InputEventMouseButton and event.button_mask == 1:
+#		currImageCopy = get_child(0).duplicate()
+#		currImageCopy.global_position = event.global_position
+#		get_tree().current_scene.add_child(currImageCopy)
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkyx5euq2ctml"]
+
+[ext_resource type="Script" path="res://Source/Entities/Towers/LightningTower.cs" id="1_a1i4u"]
+[ext_resource type="Texture2D" uid="uid://bikk5oalgc2v1" path="res://Assets/Images/Towers/LightningTower.png" id="2_yxpi8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq3ew"]
+radius = 189.003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
+radius = 189.003
+
+[node name="LightningTower" type="Node2D"]
+script = ExtResource("1_a1i4u")
+
+[node name="LightningTower" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_yxpi8")
+
+[node name="StrikeZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StrikeZone"]
+shape = SubResource("CircleShape2D_bq3ew")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xs053")
+one_way_collision_margin = 0.0

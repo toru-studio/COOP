@@ -3,21 +3,21 @@ using System;
 using System.Collections.Generic;
 using Godot.Collections;
 
-public partial class FlameTower : Tower
+public partial class LightningTower : Tower
 {
-	private Area2D FireBeam;
+	private Area2D StrikeZone;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		base._Ready();
-		this.TriggerPeriod = 5.0;
+		this.TriggerPeriod = 10;
 		try
 		{
-			this.FireBeam = GetNode<Area2D>("FireBeam");
+			this.StrikeZone = GetNode<Area2D>("StrikeZone");
 		}
 		catch (Exception e)
 		{
-			GD.Print("FireBeam could not be found");
+			GD.Print("StrikeZone could not be found");
 		}
 	}
 
@@ -43,12 +43,13 @@ public partial class FlameTower : Tower
 
 	protected override void Attack()
 	{
-		Array<Area2D> overlappingBeam = this.FireBeam.GetOverlappingAreas();
+		Array<Area2D> overlappingBeam = this.StrikeZone.GetOverlappingAreas();
 		foreach (Area2D area in overlappingBeam)
 		{
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
-				area.GetParent<Fox>().ShineOn(150);
+				area.GetParent<Fox>().ShineOn(10);
+				area.GetParent<Fox>().StunTargets();
 			}
 		}
 	}

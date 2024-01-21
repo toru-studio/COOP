@@ -1,10 +1,20 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c0bbmlb03qpjl"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://c0bbmlb03qpjl"]
 
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_jrdc5"]
 resource_name = "HighPassFilter"
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_clwlc"]
+resource_name = "Reverb"
+wet = 0.1
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_1qc66"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_h6bxg"]
+resource_name = "StereoEnhance"
+
 [resource]
-bus/1/name = &"High Pass"
+bus/1/name = &"Crickets"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
@@ -12,3 +22,21 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectHighPassFilter_jrdc5")
 bus/1/effect/0/enabled = true
+bus/2/name = &"FoxNoises"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_clwlc")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectLowPassFilter_1qc66")
+bus/2/effect/1/enabled = true
+bus/3/name = &"Music"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -29.2359
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectStereoEnhance_h6bxg")
+bus/3/effect/0/enabled = true

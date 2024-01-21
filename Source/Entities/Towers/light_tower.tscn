@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bst6i6b2milk4"]
 
 [ext_resource type="Script" path="res://Source/Entities/Towers/LightTower.cs" id="1_heei3"]
-[ext_resource type="Texture2D" uid="uid://ceidq0bdpyih8" path="res://Assets/Images/Towers/Tower.png" id="2_gurnk"]
+[ext_resource type="Texture2D" uid="uid://n8jpy2kimj2m" path="res://Assets/Images/Towers/Basic_chicken.png" id="2_2ho7t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
 
@@ -12,9 +12,9 @@ size = Vector2(20, 265)
 script = ExtResource("1_heei3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.771436
-scale = Vector2(1.641, 1.641)
-texture = ExtResource("2_gurnk")
+rotation = 1.5708
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_2ho7t")
 
 [node name="Area2D" type="Area2D" parent="."]
 

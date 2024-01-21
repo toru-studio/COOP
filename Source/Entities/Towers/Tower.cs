@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Godot;
 
 public abstract partial class Tower : Node2D
 {
 	protected Area2D Area2D;
-    
+	
 	protected  LinkedList<Fox> FoxLL;
 	protected  double Alapsed;
 	protected double TriggerPeriod;

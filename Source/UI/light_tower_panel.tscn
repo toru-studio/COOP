@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq5ygcqvpnety"]
+
+[ext_resource type="Script" path="res://Source/UI/LightTowerPanel.gd" id="1_3h05k"]
+[ext_resource type="Texture2D" uid="uid://ceidq0bdpyih8" path="res://Assets/Images/Towers/Tower.png" id="2_bstaa"]
+[ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="3_wxivs"]
+
+[node name="LightTowerPanel" type="Panel"]
+custom_minimum_size = Vector2(160, 160)
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_3h05k")
+
+[node name="Tower" type="Sprite2D" parent="."]
+position = Vector2(82, 77)
+scale = Vector2(1.64063, 1.64063)
+texture = ExtResource("2_bstaa")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 24.0
+text = "Light Tower"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 0
+offset_top = 121.0
+offset_right = 160.0
+offset_bottom = 161.0
+
+[node name="Label2" type="Label" parent="HSplitContainer"]
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="Leaf" type="Sprite2D" parent="HSplitContainer"]
+position = Vector2(91.75, 21.25)
+scale = Vector2(0.351562, 0.351562)
+texture = ExtResource("3_wxivs")

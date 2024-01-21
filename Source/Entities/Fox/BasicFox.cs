@@ -5,8 +5,11 @@ using Godot;
 public partial class BasicFox : Fox
 {
     private bool HasFlower;
+    private double SniffAlapsed;
+    
     private Sprite2D Sprite2D;
     private AnimationPlayer AnimationPlayer;
+    private Node2D Sounds;
     public override void _Ready()
     {
         base._Ready();
@@ -35,6 +38,15 @@ public partial class BasicFox : Fox
             GD.Print("No Animation Player Found");
         }
 
+        try
+        {
+            this.Sounds = (Node2D)this.FindChild("Sounds");
+        }
+        catch (Exception e)
+        {
+            GD.Print("Cannot find sound node");
+        }
+
 
         // Random Chance Of Flower
         Game game = (Game)this.GetTree().CurrentScene;
@@ -48,8 +60,47 @@ public partial class BasicFox : Fox
 
     protected override void Normal(double delta)
     {
+        SniffAlapsed += delta;
+        Game game = (Game)this.GetTree().CurrentScene;
+        if (SniffAlapsed > 2)
+        {
+            switch (game.GetRandom())
+            {
+                case < .05:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff1")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff2")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff1")).Play();
+                    break;
+                case < .1:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff1")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff2")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff2")).Play();
+                    break;
+            }
+
+            SniffAlapsed = 0.0;
+        }
+
+        // Random Chance of Sniffing
         if (BlindLevel >= 100)
         {
+            // Change Sounds
+            AudioStreamPlayer2D aspWalk = (AudioStreamPlayer2D)this.Sounds.FindChild("Walking");
+            aspWalk.Stop();
+            AudioStreamPlayer2D aspBlind = (AudioStreamPlayer2D)this.Sounds.FindChild("Blinded");
+            aspBlind.Play();
+            
+            // Random Chance of Squawk
+            switch (game.GetRandom())
+            {
+                case < .3:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Squawk1")).Play();
+                    break;
+                case < 0.6:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Squawk2")).Play();
+                    break;
+            }
+            // Change Animation
             double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
             this.AnimationPlayer.Play(HasFlower ? "Blind Flower Walk Cycle" : "Blind Walk Cycle");
             this.AnimationPlayer.Seek(curFrame);
@@ -61,10 +112,23 @@ public partial class BasicFox : Fox
     {
         if (this.BlindLevel < RecoverBlindLevel)
         {
+            // Change Sounds
+            AudioStreamPlayer2D aspBlind = (AudioStreamPlayer2D)this.Sounds.FindChild("Blinded");
+            aspBlind.Stop();
+            AudioStreamPlayer2D aspWalk = (AudioStreamPlayer2D)this.Sounds.FindChild("Walking");
+            aspWalk.Play();
             double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
             this.AnimationPlayer.Play(HasFlower ? "Flower Walk Cycle" : "walk cycle");
             this.AnimationPlayer.Seek(curFrame);
         }
+        
+        if (this.ElapsedBlindness >= this.MaxElapsedBlindness)
+		{
+            AudioStreamPlayer2D aspBlind = (AudioStreamPlayer2D)this.Sounds.FindChild("Blinded");
+            aspBlind.Stop();
+            AudioStreamPlayer2D aspRun = (AudioStreamPlayer2D)this.Sounds.FindChild("Running");
+            aspRun.Play();
+		}
         base.Blind(delta);
     }
     protected override void Flee(double delta)

@@ -3,33 +3,15 @@ using System;
 using System.Collections.Generic;
 using Godot.Collections;
 
-public partial class LightTower : Node2D
+public partial class LightTower : Tower
 {
-	private Area2D Area2D;
 	private Area2D StrongBeam;
 	private Area2D WeakBeam;
-
-	private LinkedList<Fox> FoxLL;
-	private double Alapsed;
-	private double TriggerPeriod;
-	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.Alapsed = 0.0;
+		base._Ready();
 		this.TriggerPeriod = 1.0;
-		this.FoxLL = new LinkedList<Fox>();
-		try
-		{
-			this.Area2D = GetNode<Area2D>("Area2D");
-			this.Area2D.AreaEntered += OnAreaEntered;
-			this.Area2D.AreaExited += OnAreaExited;
-		}
-		catch (Exception e)
-		{
-			GD.Print("Area2D on tower could not be found");
-		}
-
 		try
 		{
 			this.StrongBeam = GetNode<Area2D>("StrongBeam");
@@ -41,40 +23,27 @@ public partial class LightTower : Node2D
 		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		this.Alapsed += delta;
-		this.LookAt();
-		if (this.Alapsed >= this.TriggerPeriod)
-		{
-			this.Attack();
-			this.Alapsed = 0.0;
-		}
-		
-	}
-
-	private void OnAreaEntered(Node node)
+	protected override void OnAreaEntered(Node node)
 	{
 		if (node.GetParent().GetType().BaseType == typeof(Fox))
 		{
-			FoxLL.AddLast(node.GetParent<Fox>());
+			this.FoxLL.AddLast(node.GetParent<Fox>());
 		}
 	}
 
-	private void OnAreaExited(Node node)
+	protected override void OnAreaExited(Node node)
 	{
 		if (node.GetParent().GetType().BaseType == typeof(Fox))
 		{
-			LinkedListNode<Fox> n = FoxLL.Find(node.GetParent<Fox>());
+			LinkedListNode<Fox> n = this.FoxLL.Find(node.GetParent<Fox>());
 			if (n != null)
 			{
-				FoxLL.Remove(n);
+				this.FoxLL.Remove(n);
 			}
 		}
 	}
 
-	private void Attack()
+	protected override void Attack()
 	{
 		Array<Area2D> overlappingStrong = this.StrongBeam.GetOverlappingAreas();
 		Array<Area2D> overlappingWeak = this.WeakBeam.GetOverlappingAreas();
@@ -95,7 +64,7 @@ public partial class LightTower : Node2D
 		}
 	}
 
-	private void LookAt()
+	protected override void LookAt()
 	{
 		if (FoxLL.Count == 0)
 		{

@@ -6,6 +6,8 @@ public partial class Game : Node2D
 	private FoxSpawner Spawner;
 	private Label CurrencyLabel;
 	private int Currency;
+	private Label HealthLabel;
+	private int Health;
 	private Random Random;
 
 	private double test_elapsed;
@@ -35,6 +37,18 @@ public partial class Game : Node2D
 		}
 
 		this.CurrencyLabel.Text = "0";
+		
+		try
+		{
+			this.HealthLabel = (Label)this.FindChild("Health");
+		}
+		catch (Exception e)
+		{
+			GD.Print("Health Label Not Found");
+		}
+
+		this.Health = 100;
+		this.HealthLabel.Text = "100";
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,6 +73,12 @@ public partial class Game : Node2D
 		CurrencyLabel.Text = Convert.ToString(Currency);
 	}
 
+	public void RemoveHealth(int value)
+	{
+		Health -= value;
+		HealthLabel.Text = Convert.ToString(Health);
+	}
+	
 	public double GetRandom()
 	{
 		return Random.NextDouble();

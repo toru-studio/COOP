@@ -4,12 +4,17 @@ var currImageCopy
 var towerScene
 
 func _on_ready():
-	var towerType = get_child(0).name
+	#var towerType = get_child(0).name TODO Uncomment when other tower scenes created
+	var towerType = "light_tower"
 	var towerPath = "res://Source/Entities/Towers/"+towerType+".tscn"
+	print(towerPath)
 	towerScene = load(towerPath)
 
 
 func _on_gui_input(event):
+	if	towerScene == null: #TODO Remove when the other tower scenes created
+		return
+	print(towerScene)
 	var tempTower = towerScene.instantiate()
 	if event is InputEventMouseButton and event.button_mask == 1:
 		currImageCopy = get_child(0).duplicate()

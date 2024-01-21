@@ -1,11 +1,12 @@
 extends Panel
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@onready var lightTower = preload("res://Source/Entities/Towers/light_tower.tscn")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.button_mask == 1:
+		var tempTower = lightTower.instantiate()
+		print("Left Click")
 	pass

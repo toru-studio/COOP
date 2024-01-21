@@ -39,3 +39,5 @@ horizontal_alignment = 1
 position = Vector2(91.75, 21.25)
 scale = Vector2(0.351562, 0.351562)
 texture = ExtResource("3_wxivs")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ceidq0bdpyih8" path="res://Assets/Images/Towers/Tower.png" id="2_gurnk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
+radius = 8.38944
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h37p4"]
 size = Vector2(20, 265)

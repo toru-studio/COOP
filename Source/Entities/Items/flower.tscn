@@ -43,6 +43,7 @@ _data = {
 [node name="Flower" type="Node"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 scale = Vector2(2, 2)
 texture = ExtResource("1_bamkh")
 script = ExtResource("2_rs68y")

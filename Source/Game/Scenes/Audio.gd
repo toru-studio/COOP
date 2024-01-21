@@ -16,12 +16,13 @@ func _ready():
 func _process(delta):
 	refresh_fox += delta
 	refresh_music1 += delta
-	if (refresh_fox > 6.0):
-		if (randf() > 0.5):
-			$FoxNoises.play()
+	if (refresh_fox > 6.0): 
+		$FoxNoises.stop()
+		$FoxNoises.play()
 		refresh_fox = 0.0
 	if (refresh_music1 > 60): 
 		if (randf() > 0.5):
+			$Music.stop()
 			$Music.play()
 		refresh_music1 = 0.0
 	pass

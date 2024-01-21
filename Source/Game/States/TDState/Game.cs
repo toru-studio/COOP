@@ -54,6 +54,10 @@ public partial class Game : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (this.Health <= 0)
+		{
+			this.GetTree().Paused = true;
+		}
 		test_elapsed += delta;
 		if (test_elapsed > 1.0)
 		{

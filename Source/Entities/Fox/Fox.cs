@@ -58,6 +58,7 @@ public abstract partial class Fox : PathFollow2D
 		
 		if (this.ProgressRatio > PATH_END)
 		{
+			((Game)this.GetTree().CurrentScene).RemoveHealth(5);
 			this.Free();
 		}
 		

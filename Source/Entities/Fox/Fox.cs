@@ -52,14 +52,14 @@ public abstract partial class Fox : PathFollow2D
 		if (this.ProgressRatio > PATH_END)
 		{
 			this.Free();
-        }
+		}
 		
 		// Blind the fox at full blindness
 		if (BlindLevel >= 100)
 		{
 			this.ElapsedBlindness = 0.0;
 			this.State = FoxState.BLIND;
-        }
+		}
 
 		// Recover blindness
 		if (BlindLevel <= 0) return;

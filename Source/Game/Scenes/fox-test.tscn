@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=14 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://Source/Game/Scenes/Audio.gd" id="6_sgvqy"]
 [ext_resource type="AudioStream" uid="uid://b3x76k5poo1k2" path="res://Assets/Sounds/Music/chicken-not-chicken.mp3" id="8_wjiya"]
 [ext_resource type="PackedScene" uid="uid://bst6i6b2milk4" path="res://Source/Entities/Towers/light_tower.tscn" id="9_g7wd6"]
+[ext_resource type="PackedScene" uid="uid://cq5ygcqvpnety" path="res://Source/UI/light_tower_panel.tscn" id="10_nrxjj"]
+[ext_resource type="PackedScene" uid="uid://dtjvuncuqyg4u" path="res://Source/UI/flame_tower_panel.tscn" id="11_8ah54"]
+[ext_resource type="PackedScene" uid="uid://dnkga8lboee5f" path="res://Source/UI/lightning_tower_panel.tscn" id="12_t71ih"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -59,30 +62,51 @@ script = ExtResource("6_sgvqy")
 stream = ExtResource("5_bd7qt")
 volume_db = -11.605
 autoplay = true
-bus = &"Crickets"
 
 [node name="FoxNoises" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("5_octwf")
 volume_db = -7.055
 max_polyphony = 2
-bus = &"FoxNoises"
 
 [node name="Music" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("8_wjiya")
 mix_target = 1
-bus = &"Music"
 
-[node name="LightTower" parent="." instance=ExtResource("9_g7wd6")]
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="LightTower" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(452, 182)
 
-[node name="LightTower2" parent="." instance=ExtResource("9_g7wd6")]
+[node name="LightTower2" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(1327, 301)
 
-[node name="LightTower3" parent="." instance=ExtResource("9_g7wd6")]
+[node name="LightTower3" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(1301, 893)
 
-[node name="LightTower4" parent="." instance=ExtResource("9_g7wd6")]
+[node name="LightTower4" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(834, 621)
 
-[node name="LightTower5" parent="." instance=ExtResource("9_g7wd6")]
+[node name="LightTower5" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(1721, 583)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 640.0
+offset_top = 850.0
+offset_right = 1278.0
+offset_bottom = 1009.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 638.0
+offset_bottom = 162.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="LightTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("10_nrxjj")]
+layout_mode = 2
+
+[node name="FlameTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("11_8ah54")]
+layout_mode = 2
+
+[node name="LightTowerPanel2" parent="Panel/FlowContainer" instance=ExtResource("12_t71ih")]
+layout_mode = 2

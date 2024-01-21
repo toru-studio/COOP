@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using COOP.Source.Entities.Fox;
 using Godot;
 

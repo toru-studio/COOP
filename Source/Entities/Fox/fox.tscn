@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgqxs05ea4nqv"]
+[gd_scene load_steps=11 format=3 uid="uid://bgqxs05ea4nqv"]
 
 [ext_resource type="Script" path="res://Source/Entities/Fox/BasicFox.cs" id="1_rtb5k"]
 [ext_resource type="Texture2D" uid="uid://db4lo4l00kc45" path="res://Assets/Images/Enemies/Fox_SpriteSheet.png" id="2_4855q"]
@@ -97,6 +97,10 @@ _data = {
 "walk cycle": SubResource("Animation_eojeb")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7nmp"]
+radius = 14.0
+height = 64.0
+
 [node name="Fox" type="PathFollow2D"]
 script = ExtResource("1_rtb5k")
 
@@ -117,3 +121,9 @@ libraries = {
 "": SubResource("AnimationLibrary_38m2h")
 }
 speed_scale = 2.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w7nmp")

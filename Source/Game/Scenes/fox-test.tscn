@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=11 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bu5r2awo8mt4w" path="res://Assets/Sounds/Environment/537587__craigsays__red-fox-screeching.mp3" id="5_octwf"]
 [ext_resource type="Script" path="res://Source/Game/Scenes/Audio.gd" id="6_sgvqy"]
 [ext_resource type="AudioStream" uid="uid://b3x76k5poo1k2" path="res://Assets/Sounds/Music/chicken-not-chicken.mp3" id="8_wjiya"]
+[ext_resource type="PackedScene" uid="uid://bst6i6b2milk4" path="res://Source/Entities/Towers/light_tower.tscn" id="9_g7wd6"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -57,3 +58,18 @@ bus = &"High Pass"
 stream = ExtResource("8_wjiya")
 volume_db = -8.19
 autoplay = true
+
+[node name="LightTower" parent="." instance=ExtResource("9_g7wd6")]
+position = Vector2(452, 182)
+
+[node name="LightTower2" parent="." instance=ExtResource("9_g7wd6")]
+position = Vector2(1327, 301)
+
+[node name="LightTower3" parent="." instance=ExtResource("9_g7wd6")]
+position = Vector2(1301, 893)
+
+[node name="LightTower4" parent="." instance=ExtResource("9_g7wd6")]
+position = Vector2(834, 621)
+
+[node name="LightTower5" parent="." instance=ExtResource("9_g7wd6")]
+position = Vector2(1721, 583)

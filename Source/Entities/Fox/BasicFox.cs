@@ -5,6 +5,8 @@ using Godot;
 public partial class BasicFox : Fox
 {
     private bool HasFlower;
+    private double SniffAlapsed;
+    
     private Sprite2D Sprite2D;
     private AnimationPlayer AnimationPlayer;
     private Node2D Sounds;
@@ -58,6 +60,28 @@ public partial class BasicFox : Fox
 
     protected override void Normal(double delta)
     {
+        SniffAlapsed += delta;
+        Game game = (Game)this.GetTree().CurrentScene;
+        if (SniffAlapsed > 2)
+        {
+            switch (game.GetRandom())
+            {
+                case < .05:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff1")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff2")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff1")).Play();
+                    break;
+                case < .1:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff1")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff2")).Stop();
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Sniff2")).Play();
+                    break;
+            }
+
+            SniffAlapsed = 0.0;
+        }
+
+        // Random Chance of Sniffing
         if (BlindLevel >= 100)
         {
             // Change Sounds
@@ -65,6 +89,17 @@ public partial class BasicFox : Fox
             aspWalk.Stop();
             AudioStreamPlayer2D aspBlind = (AudioStreamPlayer2D)this.Sounds.FindChild("Blinded");
             aspBlind.Play();
+            
+            // Random Chance of Squawk
+            switch (game.GetRandom())
+            {
+                case < .3:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Squawk1")).Play();
+                    break;
+                case < 0.6:
+                    ((AudioStreamPlayer2D)this.Sounds.FindChild("Squawk2")).Play();
+                    break;
+            }
             // Change Animation
             double curFrame = this.AnimationPlayer.CurrentAnimationPosition;
             this.AnimationPlayer.Play(HasFlower ? "Blind Flower Walk Cycle" : "Blind Walk Cycle");

@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=9 format=3 uid="uid://c0bbmlb03qpjl"]
+[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://c0bbmlb03qpjl"]
 
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_jrdc5"]
 resource_name = "HighPassFilter"
@@ -27,6 +27,10 @@ ceiling_db = -10.2
 resource_name = "EQ"
 band_db/3200_hz = -60.0
 band_db/10000_hz = -60.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_p5obl"]
+resource_name = "Limiter"
+ceiling_db = -11.6
 
 [resource]
 bus/1/name = &"Crickets"
@@ -69,3 +73,11 @@ bus/4/effect/2/effect = SubResource("AudioEffectLimiter_e4kg6")
 bus/4/effect/2/enabled = true
 bus/4/effect/3/effect = SubResource("AudioEffectEQ_mwlo1")
 bus/4/effect/3/enabled = true
+bus/5/name = &"FoxSFX"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectLimiter_p5obl")
+bus/5/effect/0/enabled = true

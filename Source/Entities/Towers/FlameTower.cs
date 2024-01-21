@@ -6,10 +6,13 @@ using Godot.Collections;
 public partial class FlameTower : Tower
 {
 	private Area2D FireBeam;
+
+	private AnimationPlayer AnimationPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		base._Ready();
+		this.AnimationPlayer = (AnimationPlayer)this.FindChild("AnimationPlayer");
 		this.TriggerPeriod = 5.0;
 		try
 		{
@@ -43,6 +46,7 @@ public partial class FlameTower : Tower
 
 	protected override void Attack()
 	{
+		this.AnimationPlayer.Play("Attack");
 		Array<Area2D> overlappingBeam = this.FireBeam.GetOverlappingAreas();
 		foreach (Area2D area in overlappingBeam)
 		{

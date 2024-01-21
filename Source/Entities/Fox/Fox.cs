@@ -18,6 +18,9 @@ public abstract partial class Fox : PathFollow2D
 	protected double RecoveryRate;
 	protected double RecoverBlindLevel;
 	
+	protected double ElapsedStunned;
+	protected double MaxStunned;
+	
 	protected FoxState State;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -26,6 +29,7 @@ public abstract partial class Fox : PathFollow2D
 		this.ProgressRatio = 0.0f;
 		this.ElapsedBlindness = 0.0;
 		this.BlindLevel = 0.0;
+		this.ElapsedStunned = 0.0;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,6 +45,9 @@ public abstract partial class Fox : PathFollow2D
 				break;
 			case FoxState.FLEE:
 				this.Flee(delta);
+				break;
+			case FoxState.STUNNED:
+				this.Stunned(delta);
 				break;
 		}
 	}
@@ -102,13 +109,21 @@ public abstract partial class Fox : PathFollow2D
 
 	protected virtual void Flee(double delta)
 	{
-		
 		this.ProgressRatio += FleeSpeed * (float)delta;
 		if (this.ProgressRatio < PATH_START)
 		{
 			this.Free();
 		}
 	}
+	
+	protected virtual void Stunned(double delta){
+		this.ElapsedStunned += delta;
+		if (ElapsedStunned >= MaxStunned){
+			ElapsedStunned = 0.0;
+			this.State = FoxState.NORMAL;
+		}
+	}
+	
 	//
 	// public void FixAnimation(StringName animName)
 	// {
@@ -120,4 +135,5 @@ public abstract partial class Fox : PathFollow2D
 	// }
 	
 	public abstract void ShineOn(double strength);
+	public abstract void StunTargets();
 }

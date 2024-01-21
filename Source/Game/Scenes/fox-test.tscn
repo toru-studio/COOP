@@ -78,6 +78,9 @@ mix_target = 1
 
 [node name="Towers" type="Node2D" parent="."]
 
+[node name="FlameTower" parent="Towers" instance=ExtResource("13_lj4vs")]
+position = Vector2(387, 564)
+
 [node name="LightTower" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(452, 182)
 
@@ -111,7 +114,3 @@ layout_mode = 2
 
 [node name="LightTowerPanel2" parent="Panel/FlowContainer" instance=ExtResource("12_t71ih")]
 layout_mode = 2
-
-[node name="FlameTower" parent="." instance=ExtResource("13_lj4vs")]
-visible = false
-position = Vector2(677, 581)

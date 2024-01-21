@@ -20,6 +20,7 @@ public partial class BasicFox : Fox
 		base.MaxElapsedBlindness = 3.0;
 		base.RecoveryRate = 20.0;
 		base.RecoverBlindLevel = 80.0;
+		base.MaxStunned = 2.0;
 		try
 		{
 			this.Sprite2D = (Sprite2D)this.FindChild("Sprite2D");
@@ -56,6 +57,11 @@ public partial class BasicFox : Fox
 	public override void ShineOn(double strength)
 	{
 		base.BlindLevel += strength;
+	}
+	public override void StunTargets(){
+		//TODO Check state maybe ?
+		base.State = FoxState.STUNNED;
+		this.AnimationPlayer.Stop();
 	}
 
 	protected override void Normal(double delta)

@@ -49,6 +49,7 @@ public partial class FlameTower : Tower
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
 				area.GetParent<Fox>().ShineOn(100);
+				area.GetParent<Fox>().StunTargets();
 			}
 		}
 	}

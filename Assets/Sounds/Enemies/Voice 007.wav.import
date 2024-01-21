@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8c37o6m7bgjq"
+path="res://.godot/imported/Voice 007.wav-972300277ddb0f2852285a0f2fa90116.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Enemies/Voice 007.wav"
+dest_files=["res://.godot/imported/Voice 007.wav-972300277ddb0f2852285a0f2fa90116.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgqxs05ea4nqv"]
+[gd_scene load_steps=12 format=3 uid="uid://bgqxs05ea4nqv"]
 
 [ext_resource type="Script" path="res://Source/Entities/Fox/BasicFox.cs" id="1_rtb5k"]
 [ext_resource type="Texture2D" uid="uid://db4lo4l00kc45" path="res://Assets/Images/Enemies/Fox_SpriteSheet.png" id="2_4855q"]
 [ext_resource type="Script" path="res://Source/Entities/Fox/FoxTestClicking.gd" id="3_80hjl"]
+[ext_resource type="AudioStream" uid="uid://drj5mgyj425br" path="res://Assets/Sounds/Enemies/Voice 002.wav" id="4_b1jxr"]
 
 [sub_resource type="Animation" id="Animation_bqrt2"]
 resource_name = "Blind Flower Walk Cycle"
@@ -127,3 +128,10 @@ speed_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_w7nmp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b1jxr")
+autoplay = true
+attenuation = 5.09824
+max_polyphony = 30
+bus = &"FoxSteps"

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bst6i6b2milk4"]
+
+[ext_resource type="Script" path="res://Source/Entities/Towers/LightTower.cs" id="1_heei3"]
+[ext_resource type="Texture2D" uid="uid://ceidq0bdpyih8" path="res://Assets/Images/Towers/Tower.png" id="2_gurnk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h37p4"]
+size = Vector2(20, 265)
+
+[node name="LightTower" type="Node2D"]
+script = ExtResource("1_heei3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.771436
+texture = ExtResource("2_gurnk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(27.39, 27.39)
+shape = SubResource("CircleShape2D_xs053")
+one_way_collision_margin = 0.0
+
+[node name="StrongBeam" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StrongBeam"]
+position = Vector2(147.5, 4)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_h37p4")
+
+[node name="WeakBeam" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeakBeam"]
+polygon = PackedVector2Array(14, 14, 253, 98, 279, 13, 279, -7, 257, -92, 14, -14)

@@ -1,10 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using Godot.Collections;
 
 public partial class LightTower : Node2D
 {
 	private Area2D Area2D;
+	private Area2D StrongBeam;
+	private Area2D WeakBeam;
 
 	private LinkedList<Fox> FoxLL;
 	private double Alapsed;
@@ -26,12 +29,23 @@ public partial class LightTower : Node2D
 		{
 			GD.Print("Area2D on tower could not be found");
 		}
+
+		try
+		{
+			this.StrongBeam = GetNode<Area2D>("StrongBeam");
+			this.WeakBeam = GetNode<Area2D>("WeakBeam");
+		}
+		catch (Exception e)
+		{
+			GD.Print("Strong and/or Weak could not be found");
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		this.Alapsed += delta;
+		this.LookAt();
 		if (this.Alapsed >= this.TriggerPeriod)
 		{
 			this.Attack();
@@ -62,6 +76,27 @@ public partial class LightTower : Node2D
 
 	private void Attack()
 	{
+		Array<Area2D> overlappingStrong = this.StrongBeam.GetOverlappingAreas();
+		Array<Area2D> overlappingWeak = this.WeakBeam.GetOverlappingAreas();
+		foreach (Area2D area in overlappingStrong)
+		{
+			if (area.GetParent().GetType().BaseType == typeof(Fox))
+			{
+				area.GetParent<Fox>().ShineOn(50);
+			}
+		}
+
+		foreach (Area2D area in overlappingWeak)
+		{
+			if (area.GetParent().GetType().BaseType == typeof(Fox))
+			{
+				area.GetParent<Fox>().ShineOn(25);
+			}
+		}
+	}
+
+	private void LookAt()
+	{
 		if (FoxLL.Count == 0)
 		{
 			return;
@@ -71,6 +106,8 @@ public partial class LightTower : Node2D
 		{
 			target = target.Next;
 		}
-		target.Value.ShineOn(300);
+
+		Vector2 dir = target.Value.GlobalPosition - GlobalPosition;
+		this.Rotation = dir.Angle();
 	}
 }

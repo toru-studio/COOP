@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bst6i6b2milk4"]
+[gd_scene load_steps=6 format=3 uid="uid://bst6i6b2milk4"]
 
+[ext_resource type="Texture2D" uid="uid://bt41bf6rc208t" path="res://Assets/Images/Towers/Basic_Nest.png" id="1_bs7ne"]
 [ext_resource type="Script" path="res://Source/Entities/Towers/LightTower.cs" id="1_heei3"]
-[ext_resource type="Texture2D" uid="uid://ceidq0bdpyih8" path="res://Assets/Images/Towers/Tower.png" id="2_gurnk"]
+[ext_resource type="Texture2D" uid="uid://n8jpy2kimj2m" path="res://Assets/Images/Towers/Basic_chicken.png" id="2_2ho7t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
 
@@ -9,28 +10,34 @@
 size = Vector2(20, 265)
 
 [node name="LightTower" type="Node2D"]
-script = ExtResource("1_heei3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.771436
-scale = Vector2(1.641, 1.641)
-texture = ExtResource("2_gurnk")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_bs7ne")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_heei3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+rotation = 1.5708
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_2ho7t")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 scale = Vector2(27.39, 27.39)
 shape = SubResource("CircleShape2D_xs053")
 one_way_collision_margin = 0.0
 
-[node name="StrongBeam" type="Area2D" parent="."]
+[node name="StrongBeam" type="Area2D" parent="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StrongBeam"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StrongBeam"]
 position = Vector2(147.5, 4)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_h37p4")
 
-[node name="WeakBeam" type="Area2D" parent="."]
+[node name="WeakBeam" type="Area2D" parent="Node2D"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeakBeam"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/WeakBeam"]
 polygon = PackedVector2Array(14, 14, 253, 98, 279, 13, 279, -7, 257, -92, 14, -14)

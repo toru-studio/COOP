@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
 [ext_resource type="Script" path="res://Source/Entities/Fox/FoxSpawner.cs" id="2_b2xjl"]
-[ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="4_gl4f2"]
+[ext_resource type="Texture2D" uid="uid://t8romjk3pjix" path="res://Assets/Images/Entities/seeds.png" id="4_ctgqf"]
 [ext_resource type="AudioStream" uid="uid://ditoa1o73icxs" path="res://Assets/Sounds/Environment/Crickets.mp3" id="5_bd7qt"]
 [ext_resource type="AudioStream" uid="uid://bu5r2awo8mt4w" path="res://Assets/Sounds/Environment/537587__craigsays__red-fox-screeching.mp3" id="5_octwf"]
 [ext_resource type="Script" path="res://Source/Game/Scenes/Audio.gd" id="6_sgvqy"]
@@ -54,7 +54,8 @@ theme_override_font_sizes/font_size = 20
 
 [node name="Leaf" type="Sprite2D" parent="."]
 position = Vector2(1753, 43)
-texture = ExtResource("4_gl4f2")
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_ctgqf")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("6_sgvqy")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bst6i6b2milk4"]
+[gd_scene load_steps=8 format=3 uid="uid://bst6i6b2milk4"]
 
 [ext_resource type="Texture2D" uid="uid://bt41bf6rc208t" path="res://Assets/Images/Towers/Basic_Nest.png" id="1_bs7ne"]
 [ext_resource type="Script" path="res://Source/Entities/Towers/LightTower.cs" id="1_heei3"]
 [ext_resource type="Texture2D" uid="uid://n8jpy2kimj2m" path="res://Assets/Images/Towers/Basic_chicken.png" id="2_2ho7t"]
+[ext_resource type="Texture2D" uid="uid://ddg33vqjjf48d" path="res://Assets/Images/UI/RadialGradient.png" id="4_cf7w4"]
+[ext_resource type="Texture2D" uid="uid://b20da0q0bel7x" path="res://Assets/Images/UI/cone.png" id="5_iam4b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
 radius = 8.38944
@@ -12,12 +14,26 @@ size = Vector2(20, 265)
 
 [node name="LightTower" type="Node2D"]
 
+[node name="Base" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+enabled = false
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("4_cf7w4")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_bs7ne")
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_heei3")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D"]
+position = Vector2(-36, 20)
+rotation = -3.13684
+scale = Vector2(1.36, 1.68)
+shadow_enabled = true
+texture = ExtResource("5_iam4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 rotation = 1.5708

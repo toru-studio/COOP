@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading;
 
 public partial class Game : Node2D
 {
@@ -10,6 +11,8 @@ public partial class Game : Node2D
 	private int Health;
 	private bool GameOver;
 	private Random Random;
+	private double roundTimer = 0;
+	private int waveNum = 1;
 
 	private double test_elapsed;
 	// Called when the node enters the scene tree for the first time.
@@ -37,7 +40,6 @@ public partial class Game : Node2D
 		{
 			GD.Print("Currency Label Not Found");
 		}
-
 		this.Currency = 10;
 		this.CurrencyLabel.Text = "10";
 		
@@ -52,6 +54,8 @@ public partial class Game : Node2D
 
 		this.Health = 100;
 		this.HealthLabel.Text = "100";
+		
+		StartWave();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,11 +78,22 @@ public partial class Game : Node2D
 			GameOver = true;
 		}
 		test_elapsed += delta;
-		if (test_elapsed > 1.0)
+		if (test_elapsed > roundTimer)
 		{
-			this.Spawner.AddFox(GD.Load<PackedScene>("res://Source/Entities/Fox/fox.tscn"));
+			StartWave();
 			test_elapsed = 0.0;
 		}
+	}
+	
+	public void StartWave(){
+		GD.Print("Start Wave" + waveNum);
+		roundTimer = 10 + 0.5 * waveNum;
+		var spawnFoxes =  5 + waveNum * 2;
+		for (int i = 0; i < spawnFoxes; i++){
+			this.Spawner.AddFox(GD.Load<PackedScene>("res://Source/Entities/Fox/fox.tscn"));
+		}
+
+		waveNum++;
 	}
 
 	public int GetCurrency()
@@ -108,4 +123,5 @@ public partial class Game : Node2D
 	{
 		return Random.NextDouble();
 	}
+
 }

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgg11sfxr54fy"]
+[gd_scene load_steps=11 format=3 uid="uid://2yqwonj6w3xl"]
 
 [ext_resource type="Script" path="res://Source/Entities/Towers/FlameTower.cs" id="1_f2mnk"]
 [ext_resource type="Texture2D" uid="uid://p3doehcwo2yx" path="res://Assets/Images/Towers/FlameChicken.png" id="2_7t48c"]
 [ext_resource type="Texture2D" uid="uid://d1semvvdow7rl" path="res://Assets/Images/Towers/FlameNest.png" id="3_15t2m"]
+[ext_resource type="Texture2D" uid="uid://ddg33vqjjf48d" path="res://Assets/Images/UI/RadialGradient.png" id="4_g2lp0"]
+[ext_resource type="Texture2D" uid="uid://mciu5q7ea2aq" path="res://Assets/Images/UI/beam.png" id="4_ndyj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h37p4"]
 size = Vector2(53, 2104)
@@ -10,19 +12,70 @@ size = Vector2(53, 2104)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs053"]
 radius = 86.9367
 
+[sub_resource type="Animation" id="Animation_p1ke4"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlameChicken:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t4dsx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlameChicken:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfn76"]
+_data = {
+"Attack": SubResource("Animation_p1ke4"),
+"RESET": SubResource("Animation_t4dsx")
+}
+
 [node name="FlameTower" type="Node2D"]
 
+[node name="Base" type="PointLight2D" parent="."]
+scale = Vector2(3, 3)
+color = Color(0.917647, 0.498039, 0.223529, 1)
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("4_g2lp0")
+
 [node name="FlameNest" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_15t2m")
 
 [node name="Rotate" type="Node2D" parent="."]
 script = ExtResource("1_f2mnk")
 
+[node name="Beam" type="PointLight2D" parent="Rotate"]
+position = Vector2(1066, 1)
+scale = Vector2(6.90952, 0.336076)
+blend_mode = 2
+texture = ExtResource("4_ndyj7")
+
 [node name="FlameChicken" type="Sprite2D" parent="Rotate"]
 rotation = -1.5708
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_7t48c")
+hframes = 2
 
 [node name="FireBeam" type="Area2D" parent="Rotate"]
 
@@ -34,6 +87,12 @@ shape = SubResource("RectangleShape2D_h37p4")
 [node name="Area2D" type="Area2D" parent="Rotate"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotate/Area2D"]
+visible = false
 scale = Vector2(27.39, 27.39)
 shape = SubResource("CircleShape2D_xs053")
 one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rotate"]
+libraries = {
+"": SubResource("AnimationLibrary_jfn76")
+}

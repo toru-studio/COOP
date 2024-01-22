@@ -6,10 +6,13 @@ using Godot.Collections;
 public partial class LightningTower : Tower
 {
 	private Area2D StrikeZone;
+
+	private AnimationPlayer AnimationPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		base._Ready();
+		this.AnimationPlayer = (AnimationPlayer)this.FindChild("AnimationPlayer");
 		this.TriggerPeriod = 10;
 		try
 		{
@@ -43,6 +46,7 @@ public partial class LightningTower : Tower
 
 	protected override void Attack()
 	{
+		AnimationPlayer.Play("Attack");
 		Array<Area2D> overlappingBeam = this.StrikeZone.GetOverlappingAreas();
 		foreach (Area2D area in overlappingBeam)
 		{
@@ -56,19 +60,6 @@ public partial class LightningTower : Tower
 
 	protected override void LookAt()
 	{
-		if (FoxLL.Count == 0)
-		{
-			return;
-		}
-		LinkedListNode<Fox> target = FoxLL.First;
-		while (target.Value == null)
-		{
-			target = target.Next;
-		}
-
-		Vector2 dir = target.Value.GlobalPosition - GlobalPosition;
-		var temp = GetChild(0);
-		Console.WriteLine(temp);
-		this.Rotation = dir.Angle();
+		this.RotationDegrees = (0.1f + this.RotationDegrees) % 360f;
 	}
 }

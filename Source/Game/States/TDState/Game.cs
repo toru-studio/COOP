@@ -8,6 +8,7 @@ public partial class Game : Node2D
 	private int Currency;
 	private Label HealthLabel;
 	private int Health;
+	private bool GameOver;
 	private Random Random;
 
 	private double test_elapsed;
@@ -16,6 +17,7 @@ public partial class Game : Node2D
 	{
 		Random = new Random();
 		test_elapsed = 0.0;
+		GameOver = false;
 		
 		// Link Nodes
 		try
@@ -54,9 +56,21 @@ public partial class Game : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (GameOver) return;
 		if (this.Health <= 0)
 		{
-			this.GetTree().Paused = true;
+			Node scene = this.GetTree().CurrentScene;
+			Node2D gameOver = (Node2D)scene.FindChild("GameOver");
+			// Destroy the panel
+			scene.FindChild("Panel").QueueFree();
+			// TODO Stop Waves
+			// Switch Music
+			scene.FindChild("Node").QueueFree();
+			((AudioStreamPlayer)scene.FindChild("GameOverMusic")).Play();
+			// Show end card
+			gameOver.Visible = true;
+			((AnimationPlayer)gameOver.FindChild("AnimationPlayer")).Play("Game Over");
+			GameOver = true;
 		}
 		test_elapsed += delta;
 		if (test_elapsed > 1.0)

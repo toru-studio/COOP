@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bst6i6b2milk4" path="res://Source/Entities/Towers/light_tower.tscn" id="9_g7wd6"]
 [ext_resource type="PackedScene" uid="uid://cq5ygcqvpnety" path="res://Source/UI/light_tower_panel.tscn" id="10_nrxjj"]
 [ext_resource type="PackedScene" uid="uid://v2wq6qe531kt" path="res://Source/UI/flame_tower_panel.tscn" id="11_8ah54"]
-[ext_resource type="PackedScene" path="res://Source/UI/lightning_tower_panel.tscn" id="12_t71ih"]
-[ext_resource type="PackedScene" path="res://Source/Entities/Towers/lightning_tower.tscn" id="13_gt4ed"]
-[ext_resource type="PackedScene" path="res://Source/Entities/Towers/flame_tower.tscn" id="13_lj4vs"]
+[ext_resource type="PackedScene" uid="uid://caxadq6qmfh2q" path="res://Source/UI/lightning_tower_panel.tscn" id="12_t71ih"]
+[ext_resource type="PackedScene" uid="uid://dkyx5euq2ctml" path="res://Source/Entities/Towers/lightning_tower.tscn" id="13_gt4ed"]
+[ext_resource type="PackedScene" uid="uid://dgg11sfxr54fy" path="res://Source/Entities/Towers/flame_tower.tscn" id="13_lj4vs"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -97,24 +97,26 @@ position = Vector2(1301, 893)
 [node name="LightTower5" parent="Towers" instance=ExtResource("9_g7wd6")]
 position = Vector2(1721, 583)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FlowContainer" type="FlowContainer" parent="UI"]
 offset_left = 640.0
 offset_top = 850.0
-offset_right = 1142.0
-offset_bottom = 1009.0
-
-[node name="FlowContainer" type="FlowContainer" parent="Panel"]
-layout_mode = 0
-offset_right = 514.0
-offset_bottom = 162.0
+offset_right = 1154.0
+offset_bottom = 1012.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
-[node name="LightTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("10_nrxjj")]
+[node name="LightTowerPanel" parent="UI/FlowContainer" instance=ExtResource("10_nrxjj")]
 layout_mode = 2
 
-[node name="FlameTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("11_8ah54")]
+[node name="FlameTowerPanel" parent="UI/FlowContainer" instance=ExtResource("11_8ah54")]
 layout_mode = 2
 
-[node name="LightningTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("12_t71ih")]
+[node name="LightningTowerPanel" parent="UI/FlowContainer" instance=ExtResource("12_t71ih")]
 layout_mode = 2
+
+[node name="Shading" type="Node2D" parent="."]
+
+[node name="GlobalDimming" type="CanvasModulate" parent="Shading"]
+color = Color(0.541176, 0.541176, 0.541176, 1)

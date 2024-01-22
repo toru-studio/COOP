@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkyx5euq2ctml"]
+[gd_scene load_steps=6 format=3 uid="uid://dkyx5euq2ctml"]
 
 [ext_resource type="Script" path="res://Source/Entities/Towers/LightningTower.cs" id="1_a1i4u"]
 [ext_resource type="Texture2D" uid="uid://bikk5oalgc2v1" path="res://Assets/Images/Towers/LightningTower.png" id="2_yxpi8"]
+[ext_resource type="Texture2D" uid="uid://ddg33vqjjf48d" path="res://Assets/Images/UI/RadialGradient.png" id="3_7bbu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq3ew"]
 radius = 189.003
@@ -11,6 +12,14 @@ radius = 189.003
 
 [node name="LightningTower" type="Node2D"]
 script = ExtResource("1_a1i4u")
+
+[node name="Base" type="PointLight2D" parent="."]
+scale = Vector2(5, 5)
+color = Color(0.384314, 0.764706, 0.823529, 1)
+energy = 1.5
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("3_7bbu7")
 
 [node name="LightningTower" type="Sprite2D" parent="."]
 position = Vector2(-3, 0)

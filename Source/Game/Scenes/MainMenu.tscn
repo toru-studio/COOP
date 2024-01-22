@@ -56,6 +56,8 @@ theme_override_font_sizes/font_size = 54
 theme_override_styles/normal = SubResource("StyleBoxFlat_dh0db")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dh0db")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dh0db")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_dh0db")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dh0db")
 text = "Play"
 
 [node name="Exit" type="Button" parent="."]

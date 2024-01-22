@@ -4,6 +4,9 @@ using Godot;
 
 public abstract partial class Fox : PathFollow2D
 {
+	[Signal]
+	public delegate void FoxDestroyedEventHandler();
+	
 	private const float PATH_END = 0.985f;
 	private const float PATH_START = 0.05f;
 
@@ -112,6 +115,7 @@ public abstract partial class Fox : PathFollow2D
 		this.ProgressRatio += FleeSpeed * (float)delta;
 		if (this.ProgressRatio < PATH_START)
 		{
+			EmitSignal("FoxDestroyed");
 			this.Free();
 		}
 	}

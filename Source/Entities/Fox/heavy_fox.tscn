@@ -141,7 +141,7 @@ polygon = PackedVector2Array(10.2891, 0.367016, 13.049, 10.1845, 18.9009, 15.058
 script = ExtResource("1_2pkuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 0)
 rotation = 4.71239
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_r0lgo")

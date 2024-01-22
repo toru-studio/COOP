@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg85j2vjyir3i"]
+[gd_scene load_steps=6 format=3 uid="uid://cg85j2vjyir3i"]
 
 [ext_resource type="Script" path="res://Source/UI/TowerPanel.gd" id="1_2arp6"]
 [ext_resource type="Texture2D" uid="uid://bikk5oalgc2v1" path="res://Assets/Images/Towers/LightningTower.png" id="2_qa68v"]
 [ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="3_4f4v3"]
+[ext_resource type="FontFile" uid="uid://dxadyoh53hets" path="res://Assets/Images/UI/Coop.otf" id="3_ccmx5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvi5f"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -24,7 +25,8 @@ hframes = 2
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 24.0
-text = "Lightning Tower"
+theme_override_fonts/font = ExtResource("3_ccmx5")
+text = "Lightning Chicken"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -37,6 +39,7 @@ offset_bottom = 180.0
 
 [node name="Label2" type="Label" parent="HSplitContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ccmx5")
 text = "10"
 horizontal_alignment = 1
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq5ygcqvpnety"]
+[gd_scene load_steps=6 format=3 uid="uid://cq5ygcqvpnety"]
 
 [ext_resource type="Script" path="res://Source/UI/TowerPanel.gd" id="1_xocxl"]
 [ext_resource type="Texture2D" uid="uid://dbxpdq42ewfot" path="res://Assets/Images/Towers/LightTower.png" id="2_ywvtk"]
+[ext_resource type="FontFile" uid="uid://dxadyoh53hets" path="res://Assets/Images/UI/Coop.otf" id="3_im6fc"]
 [ext_resource type="Texture2D" uid="uid://hvep46vrcjy7" path="res://Assets/Images/UI/Leaf.png" id="3_wxivs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkaxy"]
@@ -24,7 +25,8 @@ texture = ExtResource("2_ywvtk")
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 24.0
-text = "Light Tower"
+theme_override_fonts/font = ExtResource("3_im6fc")
+text = "Light Chicken"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -37,6 +39,7 @@ offset_bottom = 180.0
 
 [node name="Label2" type="Label" parent="HSplitContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_im6fc")
 text = "5"
 horizontal_alignment = 1
 

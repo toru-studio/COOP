@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=9 format=3 uid="uid://2yqwonj6w3xl"]
+[gd_scene load_steps=11 format=3 uid="uid://2yqwonj6w3xl"]
 
 [ext_resource type="Script" path="res://Source/Entities/Towers/FlameTower.cs" id="1_f2mnk"]
 [ext_resource type="Texture2D" uid="uid://p3doehcwo2yx" path="res://Assets/Images/Towers/FlameChicken.png" id="2_7t48c"]

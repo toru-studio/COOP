@@ -15,18 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cg85j2vjyir3i" path="res://Source/UI/lightning_tower_panel.tscn" id="12_t71ih"]
 [ext_resource type="Texture2D" uid="uid://4sbeinnj10we" path="res://Assets/Images/UI/Game_Over_Tile.png" id="15_noq1w"]
 
-[sub_resource type="Curve2D" id="Curve2D_i5e8c"]
-_data = {
-"points": PackedVector2Array(-36.9814, 3.26477, 36.9814, -3.26477, 382, 291, 0, 0, 0, 0, 590.3, 290.443, 0, 0, 0, 0, 731.716, 288.273, 0, 0, 0, 0, 731.099, 228.138, 0, 0, 0, 0, 898.864, 229.242, 0, 0, 0, 0, 900.714, 377.647, 0, 0, 0, 0, 833.485, 378.75, 0, 0, 0, 0, 834.102, 467.572, 0, 0, 0, 0, 993.848, 466.469, 0, 0, 0, 0, 996.315, 230.345, 0, 0, 0, 0, 1228.84, 230.345, 0, 0, 0, 0, 1226.99, 286.066, 0, 0, 0, 0, 1492.21, 286.618, 0, 0, 0, 0, 1493.44, 555.291, 0, 0, 0, 0, 1230.69, 556.946, 0, 0, 0, 0, 1230.69, 786.449)
-}
-point_count = 16
-
-[sub_resource type="Curve2D" id="Curve2D_gulq4"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -118, 412, 0, 0, 0, 0, 509, 408, 0, 0, 0, 0, 509, 302, 0, 0, 0, 0, 657, 303, 0, 0, 0, 0, 658, 441, 0, 0, 0, 0, 550, 444, 0, 0, 0, 0, 554, 726, 0, 0, 0, 0, 935, 724, 0, 0, 0, 0, 938, 301, 0, 0, 0, 0, 1189, 301, 0, 0, 0, 0, 1192, 409, 0, 0, 0, 0, 1619, 407, 0, 0, 0, 0, 1616, 759, 0, 0, 0, 0, 1187, 760, 0, 0, 0, 0, 1183, 1247)
-}
-point_count = 15
-
 [sub_resource type="Animation" id="Animation_on5rr"]
 resource_name = "Game Over"
 length = 0.7
@@ -64,6 +52,18 @@ _data = {
 "RESET": SubResource("Animation_263ar")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_i5e8c"]
+_data = {
+"points": PackedVector2Array(-36.9814, 3.26477, 36.9814, -3.26477, 382, 291, 0, 0, 0, 0, 590.3, 290.443, 0, 0, 0, 0, 731.716, 288.273, 0, 0, 0, 0, 731.099, 228.138, 0, 0, 0, 0, 898.864, 229.242, 0, 0, 0, 0, 900.714, 377.647, 0, 0, 0, 0, 833.485, 378.75, 0, 0, 0, 0, 834.102, 467.572, 0, 0, 0, 0, 993.848, 466.469, 0, 0, 0, 0, 996.315, 230.345, 0, 0, 0, 0, 1228.84, 230.345, 0, 0, 0, 0, 1226.99, 286.066, 0, 0, 0, 0, 1492.21, 286.618, 0, 0, 0, 0, 1493.44, 555.291, 0, 0, 0, 0, 1230.69, 556.946, 0, 0, 0, 0, 1230.69, 786.449)
+}
+point_count = 16
+
+[sub_resource type="Curve2D" id="Curve2D_gulq4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -118, 412, 0, 0, 0, 0, 509, 408, 0, 0, 0, 0, 509, 302, 0, 0, 0, 0, 657, 303, 0, 0, 0, 0, 658, 441, 0, 0, 0, 0, 550, 444, 0, 0, 0, 0, 554, 726, 0, 0, 0, 0, 935, 724, 0, 0, 0, 0, 938, 301, 0, 0, 0, 0, 1189, 301, 0, 0, 0, 0, 1192, 409, 0, 0, 0, 0, 1619, 407, 0, 0, 0, 0, 1616, 759, 0, 0, 0, 0, 1187, 760, 0, 0, 0, 0, 1183, 1247)
+}
+point_count = 15
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gvxe0")
 
@@ -71,6 +71,69 @@ script = ExtResource("1_gvxe0")
 scale = Vector2(0.052, 0.052)
 layer_0/z_index = -2
 layer_0/tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 65542, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 17, 65536, 0, 65553, 65536, 0, 131089, 65536, 0, 196625, 65536, 0, 262161, 65536, 0, 327697, 65536, 0, 393233, 65536, 0, 458769, 65536, 0, 524305, 65536, 0, 524304, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 589839, 65536, 0, 589838, 65536, 0, 589837, 65536, 0, 589836, 65536, 0, 589835, 0, 1, 589834, 0, 0, 589833, 0, 0, 589832, 0, 0, 589831, 0, 0, 589830, 0, 0, 589829, 0, 0, 589828, 0, 0, 589827, 0, 0, 589826, 0, 0, 589825, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 1, 131072, 65536, 0, 131073, 65536, 0, 65537, 65536, 0, 65536, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 65552, 65536, 0, 131088, 65536, 0, 196624, 65536, 0, 262160, 65536, 0, 327696, 65536, 0, 393232, 65536, 0, 458768, 65536, 0, 458767, 0, 1, 524303, 65536, 0, 458766, 0, 1, 393230, 0, 0, 327694, 0, 0, 327695, 0, 1, 262159, 0, 1, 196623, 0, 1, 131087, 65536, 0, 65551, 65536, 0, 393231, 0, 1, 524302, 65536, 0, 524301, 65536, 0, 524300, 65536, 0, 524299, 0, 1, 524298, 0, 0, 524297, 0, 0, 524296, 0, 0, 524295, 0, 0, 524294, 0, 0, 524293, 0, 0, 524292, 0, 0, 524291, 0, 0, 524290, 0, 0, 458754, 0, 0, 458753, 0, 0, 393217, 0, 0, 524289, 0, 0, 393218, 0, 0, 327682, 0, 0, 262146, 0, 0, 196610, 0, 1, 196609, 0, 1, 262145, 0, 0, 327681, 0, 0, 131075, 65536, 0, 196612, 0, 1, 458765, 0, 1, 393229, 0, 0, 327693, 0, 0, 262158, 0, 0, 196622, 0, 1, 131086, 65536, 0, 65550, 65536, 0, 65549, 65536, 0, 131085, 65536, 0, 196621, 0, 1, 262157, 0, 0, 262156, 0, 0, 131084, 65536, 0, 65548, 65536, 0, 65547, 65536, 0, 65546, 65536, 0, 65545, 65536, 0, 65544, 65536, 0, 65543, 65536, 0, 65541, 65536, 0, 65540, 65536, 0, 65539, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, 262147, 0, 0, 458755, 0, 0, 393219, 0, 0, 327683, 0, 0, 196611, 0, 1, 131076, 0, 1, 131077, 0, 1, 131078, 0, 1, 131079, 65536, 0, 131080, 0, 1, 196617, 0, 0, 131081, 0, 1, 131082, 0, 1, 196618, 0, 0, 196619, 0, 1, 131083, 0, 1, 196620, 0, 1, 327692, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 1, 458764, 0, 1, 393228, 0, 0, 262155, 0, 0, 262154, 0, 0, 262153, 0, 0, 262152, 0, 1, 196615, 65536, 0, 196614, 0, 1, 196613, 65536, 0, 196616, 0, 1, 262151, 65536, 0, 262150, 0, 1, 262149, 0, 1, 262148, 0, 0, 327684, 0, 0, 327685, 0, 1, 327686, 65536, 0, 327687, 65536, 0, 327688, 0, 1, 327689, 0, 0, 327690, 0, 0, 393226, 0, 0, 393225, 0, 0, 393224, 0, 1, 393223, 0, 1, 393222, 0, 1, 393221, 0, 1, 393220, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 1, 655372, 65536, 0, 655373, 65536, 0, 655374, 65536, 0, 655375, 65536, 0, 655376, 65536, 0, 655377, 65536, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Currency" type="Label" parent="CanvasLayer"]
+offset_left = 1798.0
+offset_top = 112.0
+offset_right = 1892.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 20
+
+[node name="Health" type="Label" parent="CanvasLayer"]
+offset_left = 1798.0
+offset_top = 24.0
+offset_right = 1892.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 20
+
+[node name="Leaf" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1753, 131)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_clt3d")
+
+[node name="HealthIcon" type="Sprite2D" parent="CanvasLayer"]
+light_mask = 0
+position = Vector2(1753, 43)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_cb2a2")
+
+[node name="GameOver" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GameOver"]
+position = Vector2(977, 579)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_noq1w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameOver"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ub0ol")
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 640.0
+offset_top = 850.0
+offset_right = 1142.0
+offset_bottom = 1009.0
+
+[node name="FlowContainer" type="FlowContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 514.0
+offset_bottom = 162.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="UI_FlowContainer#LightTowerPanel" parent="CanvasLayer/Panel/FlowContainer" instance=ExtResource("10_nrxjj")]
+layout_mode = 2
+
+[node name="UI_FlowContainer#FlameTowerPanel" parent="CanvasLayer/Panel/FlowContainer" instance=ExtResource("11_8ah54")]
+layout_mode = 2
+
+[node name="UI_FlowContainer#LightningTowerPanel" parent="CanvasLayer/Panel/FlowContainer" instance=ExtResource("12_t71ih")]
+layout_mode = 2
 
 [node name="Pathing" type="Node2D" parent="."]
 
@@ -82,30 +145,6 @@ script = ExtResource("2_b2xjl")
 
 [node name="FleePath2D" type="Path2D" parent="Pathing"]
 curve = SubResource("Curve2D_gulq4")
-
-[node name="Currency" type="Label" parent="."]
-offset_left = 1798.0
-offset_top = 112.0
-offset_right = 1892.0
-offset_bottom = 140.0
-theme_override_font_sizes/font_size = 20
-
-[node name="Health" type="Label" parent="."]
-offset_left = 1798.0
-offset_top = 24.0
-offset_right = 1892.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 20
-
-[node name="Leaf" type="Sprite2D" parent="."]
-position = Vector2(1753, 131)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("4_clt3d")
-
-[node name="HealthIcon" type="Sprite2D" parent="."]
-position = Vector2(1753, 43)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("5_cb2a2")
 
 [node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_wojjq")
@@ -129,39 +168,7 @@ volume_db = -20.0
 autoplay = true
 mix_target = 1
 
-[node name="FlowContainer" type="FlowContainer" parent="UI"]
-[node name="Panel" type="Panel" parent="."]
-offset_left = 640.0
-offset_top = 850.0
-offset_right = 1154.0
-offset_bottom = 1012.0
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-
-[node name="LightTowerPanel" parent="UI/FlowContainer" instance=ExtResource("10_nrxjj")]
-layout_mode = 2
-
-[node name="FlameTowerPanel" parent="UI/FlowContainer" instance=ExtResource("11_8ah54")]
-layout_mode = 2
-
-[node name="LightningTowerPanel" parent="UI/FlowContainer" instance=ExtResource("12_t71ih")]
-layout_mode = 2
-
 [node name="Shading" type="Node2D" parent="."]
 
 [node name="GlobalDimming" type="CanvasModulate" parent="Shading"]
 color = Color(0.541176, 0.541176, 0.541176, 1)
-
-[node name="GameOver" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="GameOver"]
-position = Vector2(977, 579)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("15_noq1w")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
-root_node = NodePath("../Sprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_ub0ol")
-}

@@ -38,7 +38,8 @@ public partial class Game : Node2D
 			GD.Print("Currency Label Not Found");
 		}
 
-		this.CurrencyLabel.Text = "0";
+		this.Currency = 10;
+		this.CurrencyLabel.Text = "10";
 		
 		try
 		{
@@ -91,6 +92,12 @@ public partial class Game : Node2D
 		CurrencyLabel.Text = Convert.ToString(Currency);
 	}
 
+	public void RemoveCurrency(int value)
+	{
+		Currency -= value;
+		CurrencyLabel.Text = Convert.ToString(Currency);
+	}
+	
 	public void RemoveHealth(int value)
 	{
 		Health -= value;

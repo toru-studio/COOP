@@ -90,7 +90,11 @@ public abstract partial class Fox : PathFollow2D
 		{
 			this.State = FoxState.NORMAL;
 		}
-		
+		if (this.ProgressRatio > PATH_END)
+		{
+			((Game)this.GetTree().CurrentScene).RemoveHealth(5);
+			this.Free();
+		}
 		// Fox flees if blind for too long
 		if (this.ElapsedBlindness >= this.MaxElapsedBlindness)
 		{

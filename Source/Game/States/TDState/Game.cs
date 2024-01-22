@@ -40,8 +40,8 @@ public partial class Game : Node2D
 		{
 			GD.Print("Currency Label Not Found");
 		}
-		this.Currency = 10;
-		this.CurrencyLabel.Text = "10";
+		this.Currency = 12;
+		this.CurrencyLabel.Text = "12";
 		
 		try
 		{
@@ -87,7 +87,7 @@ public partial class Game : Node2D
 	
 	public void StartWave(){
 		GD.Print("Start Wave" + waveNum);
-		roundTimer = 10 + 0.5 * waveNum;
+		roundTimer = 10 + (1.0 + waveNum * 0.1);
 		var spawnFoxes =  5 + waveNum * 2;
 		for (int i = 0; i < spawnFoxes; i++){
 			this.Spawner.AddFox(GD.Load<PackedScene>("res://Source/Entities/Fox/fox.tscn"));

@@ -13,7 +13,7 @@ public partial class LightningTower : Tower
 	{
 		base._Ready();
 		this.AnimationPlayer = (AnimationPlayer)this.FindChild("AnimationPlayer");
-		this.TriggerPeriod = 10;
+		this.TriggerPeriod = 7;
 		try
 		{
 			this.StrikeZone = GetNode<Area2D>("StrikeZone");
@@ -52,7 +52,6 @@ public partial class LightningTower : Tower
 		{
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
-				area.GetParent<Fox>().ShineOn(10);
 				area.GetParent<Fox>().StunTargets();
 			}
 		}

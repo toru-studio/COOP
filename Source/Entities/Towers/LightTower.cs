@@ -17,7 +17,7 @@ public partial class LightTower : Tower
 	public override void _Ready()
 	{
 		base._Ready();
-		this.TriggerPeriod = 1.0;
+		this.TriggerPeriod = 0.75;
 		this.Sprite = (Sprite2D)this.FindChild("Sprite2D");
 
 		this.HasAttacked = false;
@@ -79,7 +79,7 @@ public partial class LightTower : Tower
 		{
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
-				area.GetParent<Fox>().ShineOn(50);
+				area.GetParent<Fox>().ShineOn(40);
 			}
 		}
 

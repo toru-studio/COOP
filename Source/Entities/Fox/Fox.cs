@@ -82,7 +82,8 @@ public abstract partial class Fox : PathFollow2D
 	{
 		this.ElapsedBlindness += delta;
 		this.BlindLevel -= this.RecoveryRate * delta;
-		this.ProgressRatio += BlindSpeed * (float)delta;
+		float r = this.ProgressRatio + BlindSpeed * (float)delta;
+		this.ProgressRatio = r < 0 ? 0 : r;
 		
 		// Fox recovers at RecoverBlindLevel
 		if (this.BlindLevel < RecoverBlindLevel)
@@ -110,7 +111,8 @@ public abstract partial class Fox : PathFollow2D
 
 	protected virtual void Flee(double delta)
 	{
-		this.ProgressRatio += FleeSpeed * (float)delta;
+		float r = this.ProgressRatio + FleeSpeed * (float)delta;
+		this.ProgressRatio = r < 0 ? 0 : r;
 		if (this.ProgressRatio < PATH_START)
 		{
 			this.Free();

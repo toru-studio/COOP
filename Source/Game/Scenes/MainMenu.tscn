@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://boah6rkqlar8t"]
+
+[ext_resource type="FontFile" uid="uid://dxadyoh53hets" path="res://Assets/Images/UI/Coop.otf" id="1_kq8ku"]
+[ext_resource type="Script" path="res://Source/Game/Scenes/MainMenu.gd" id="1_nglnw"]
+[ext_resource type="Texture2D" uid="uid://bcd3kks7spilw" path="res://Assets/Images/UI/Coop.png" id="2_pyaby"]
+
+[sub_resource type="Gradient" id="Gradient_mom1u"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.871824, 0.575377, 0.267503, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bl110"]
+gradient = SubResource("Gradient_mom1u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh0db"]
+bg_color = Color(0.72549, 0.517647, 0.247059, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 1
+shadow_offset = Vector2(-3, 3)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nglnw")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture1D_bl110")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 714.0
+offset_top = 53.0
+offset_right = 2762.0
+offset_bottom = 2101.0
+scale = Vector2(0.245838, 0.216637)
+texture = ExtResource("2_pyaby")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 583.0
+offset_top = 500.0
+offset_right = 1333.0
+offset_bottom = 570.0
+theme_override_fonts/font = ExtResource("1_kq8ku")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_dh0db")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh0db")
+text = "Play"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 583.0
+offset_top = 590.0
+offset_right = 1333.0
+offset_bottom = 660.0
+theme_override_fonts/font = ExtResource("1_kq8ku")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_dh0db")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh0db")
+text = "Exit"
+
+[node name="Subtext" type="TextEdit" parent="."]
+layout_mode = 2
+offset_left = 459.0
+offset_top = 776.0
+offset_right = 1439.0
+offset_bottom = 829.0
+theme_override_fonts/font = ExtResource("1_kq8ku")
+theme_override_font_sizes/font_size = 28
+text = "Made by Finlay Metcalfe, Nathan Bridge-Earney, Holly Stone, and Sam Mata"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

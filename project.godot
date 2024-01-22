@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="COOP"
-run/main_scene="res://Source/Game/Scenes/fox-test.tscn"
+config/version="1.0"
+run/main_scene="res://Source/Game/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Images/UI/Coop.png"
 
 [display]
 

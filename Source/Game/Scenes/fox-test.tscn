@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://t8romjk3pjix" path="res://Assets/Images/Entities/seeds.png" id="4_clt3d"]
 [ext_resource type="Texture2D" uid="uid://bdhsndx8878r1" path="res://Assets/Images/Environment/Tree_#1.png" id="4_pgwgp"]
 [ext_resource type="AudioStream" uid="uid://ditoa1o73icxs" path="res://Assets/Sounds/Environment/Crickets.mp3" id="5_bd7qt"]
-[ext_resource type="Texture2D" uid="uid://bctc2nm7yjrb" path="res://Assets/Images/UI/Health_Icon.png" id="5_cb2a2"]
+[ext_resource type="Texture2D" uid="uid://bgn33vuu327lg" path="res://Assets/Images/UI/Health_Icon.png" id="5_cb2a2"]
 [ext_resource type="Texture2D" uid="uid://dxak46khtnul4" path="res://Assets/Images/Environment/Trees_#2.png" id="5_g72vg"]
 [ext_resource type="AudioStream" uid="uid://bu5r2awo8mt4w" path="res://Assets/Sounds/Environment/537587__craigsays__red-fox-screeching.mp3" id="5_octwf"]
 [ext_resource type="Script" path="res://Source/Game/Scenes/Audio.gd" id="6_sgvqy"]

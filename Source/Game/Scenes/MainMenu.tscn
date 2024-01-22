@@ -13,6 +13,7 @@ gradient = SubResource("Gradient_mom1u")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh0db"]
 bg_color = Color(0.72549, 0.517647, 0.247059, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -54,6 +55,7 @@ theme_override_fonts/font = ExtResource("1_kq8ku")
 theme_override_font_sizes/font_size = 54
 theme_override_styles/normal = SubResource("StyleBoxFlat_dh0db")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dh0db")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dh0db")
 text = "Play"
 
 [node name="Exit" type="Button" parent="."]
@@ -70,13 +72,15 @@ text = "Exit"
 
 [node name="Subtext" type="TextEdit" parent="."]
 layout_mode = 2
-offset_left = 459.0
+offset_left = 481.0
 offset_top = 776.0
-offset_right = 1439.0
+offset_right = 1461.0
 offset_bottom = 829.0
+theme_override_colors/background_color = Color(0.870588, 0.572549, 0.266667, 1)
 theme_override_fonts/font = ExtResource("1_kq8ku")
 theme_override_font_sizes/font_size = 28
 text = "Made by Finlay Metcalfe, Nathan Bridge-Earney, Holly Stone, and Sam Mata"
+editable = false
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

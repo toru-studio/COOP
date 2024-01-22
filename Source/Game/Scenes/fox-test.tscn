@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=27 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dxak46khtnul4" path="res://Assets/Images/Environment/Trees_#2.png" id="5_g72vg"]
 [ext_resource type="AudioStream" uid="uid://bu5r2awo8mt4w" path="res://Assets/Sounds/Environment/537587__craigsays__red-fox-screeching.mp3" id="5_octwf"]
 [ext_resource type="Script" path="res://Source/Game/Scenes/Audio.gd" id="6_sgvqy"]
+[ext_resource type="FontFile" uid="uid://dxadyoh53hets" path="res://Assets/Images/UI/Coop.otf" id="7_288ad"]
 [ext_resource type="Texture2D" uid="uid://bi5vran2pjs80" path="res://Assets/Images/UI/Dock.png" id="7_uei06"]
 [ext_resource type="AudioStream" uid="uid://b3x76k5poo1k2" path="res://Assets/Sounds/Music/chicken-not-chicken.mp3" id="8_wjiya"]
 [ext_resource type="AudioStream" uid="uid://csgmmifp8bns8" path="res://Assets/Sounds/Music/chicken-chicken.mp3" id="9_wojjq"]
@@ -208,6 +209,7 @@ offset_left = 1798.0
 offset_top = 112.0
 offset_right = 1892.0
 offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("7_288ad")
 theme_override_font_sizes/font_size = 20
 
 [node name="Health" type="Label" parent="CanvasLayer"]
@@ -215,6 +217,7 @@ offset_left = 1798.0
 offset_top = 24.0
 offset_right = 1892.0
 offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("7_288ad")
 theme_override_font_sizes/font_size = 20
 
 [node name="Leaf" type="Sprite2D" parent="CanvasLayer"]

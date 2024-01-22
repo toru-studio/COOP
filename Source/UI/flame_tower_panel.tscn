@@ -25,7 +25,7 @@ layout_mode = 0
 offset_right = 160.0
 offset_bottom = 24.0
 theme_override_fonts/font = ExtResource("3_mm4ng")
-text = "Flame Tower"
+text = "Flame Chicken"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -306,7 +306,6 @@ max_polyphony = 2
 [node name="Music" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("8_wjiya")
 volume_db = -20.0
-autoplay = true
 mix_target = 1
 
 [node name="Shading" type="Node2D" parent="."]

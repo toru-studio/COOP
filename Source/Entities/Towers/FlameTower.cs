@@ -13,7 +13,7 @@ public partial class FlameTower : Tower
 	{
 		base._Ready();
 		this.AnimationPlayer = (AnimationPlayer)this.FindChild("AnimationPlayer");
-		this.TriggerPeriod = 10.0;
+		this.TriggerPeriod = 9.0;
 		try
 		{
 			this.FireBeam = GetNode<Area2D>("FireBeam");

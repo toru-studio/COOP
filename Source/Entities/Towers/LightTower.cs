@@ -79,7 +79,7 @@ public partial class LightTower : Tower
 		{
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
-				area.GetParent<Fox>().ShineOn(40);
+				area.GetParent<Fox>().ShineOn(35);
 			}
 		}
 
@@ -87,7 +87,7 @@ public partial class LightTower : Tower
 		{
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
-				area.GetParent<Fox>().ShineOn(25);
+				area.GetParent<Fox>().ShineOn(15);
 			}
 		}
 	}

@@ -51,7 +51,7 @@ public partial class BasicFox : Fox
 
 		// Random Chance Of Flower
 		Game game = (Game)this.GetTree().CurrentScene;
-		HasFlower = game.GetRandom() < 0.3;
+		HasFlower = game.GetRandom() < 0.25;
 		this.AnimationPlayer.Play(HasFlower ? "Flower Walk Cycle" : "walk cycle");
 	}
 	public override void ShineOn(double strength)

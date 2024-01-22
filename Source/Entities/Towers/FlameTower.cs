@@ -13,7 +13,7 @@ public partial class FlameTower : Tower
 	{
 		base._Ready();
 		this.AnimationPlayer = (AnimationPlayer)this.FindChild("AnimationPlayer");
-		this.TriggerPeriod = 5.0;
+		this.TriggerPeriod = 9.0;
 		try
 		{
 			this.FireBeam = GetNode<Area2D>("FireBeam");
@@ -52,7 +52,7 @@ public partial class FlameTower : Tower
 		{
 			if (area.GetParent().GetType().BaseType == typeof(Fox))
 			{
-				area.GetParent<Fox>().ShineOn(150);
+				area.GetParent<Fox>().ShineOn(100);
 			}
 		}
 	}

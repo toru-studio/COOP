@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgqxs05ea4nqv"]
+[gd_scene load_steps=20 format=3 uid="uid://bgqxs05ea4nqv"]
 
 [ext_resource type="Script" path="res://Source/Entities/Fox/BasicFox.cs" id="1_rtb5k"]
 [ext_resource type="Texture2D" uid="uid://db4lo4l00kc45" path="res://Assets/Images/Enemies/Fox_SpriteSheet.png" id="2_4855q"]
@@ -136,6 +136,9 @@ _data = {
 radius = 14.0
 height = 64.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lj22h"]
+polygon = PackedVector2Array(10.2891, 0.367016, 13.049, 10.1845, 18.9009, 15.0584, 15.8612, 26.71, 6.89975, 24.5437, 2.84706, 20.9975, 2.35802, 15.6346, -3.96553, 7.63378, -6.72543, -2.18371, -4.97847, -7.56405, -9.92207, -10.6561, -12.6645, -18.2376, -13.6077, -24.4914, -12.2975, -28.5267, -7.80809, -26.3255, -5.08306, -20.9801, -2.7599, -9.81748, 3.96553, -7.63378)
+
 [node name="Fox" type="PathFollow2D"]
 script = ExtResource("1_rtb5k")
 
@@ -199,3 +202,7 @@ bus = &"FoxSFX"
 [node name="Sniff2" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("10_8c7tp")
 bus = &"FoxSFX"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+rotation = -1.09935
+occluder = SubResource("OccluderPolygon2D_lj22h")

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading;
 
 public partial class Game : Node2D
 {
@@ -7,6 +8,8 @@ public partial class Game : Node2D
 	private Label CurrencyLabel;
 	private int Currency;
 	private Random Random;
+	private double roundTimer = 0;
+	private int waveNum = 1;
 
 	private double test_elapsed;
 	// Called when the node enters the scene tree for the first time.
@@ -35,17 +38,29 @@ public partial class Game : Node2D
 		}
 
 		this.CurrencyLabel.Text = "0";
+		StartWave();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		test_elapsed += delta;
-		if (test_elapsed > 1.0)
+		if (test_elapsed > roundTimer)
 		{
-			this.Spawner.AddFox(GD.Load<PackedScene>("res://Source/Entities/Fox/fox.tscn"));
+			StartWave();
 			test_elapsed = 0.0;
 		}
+	}
+	
+	public void StartWave(){
+		GD.Print("Start Wave" + waveNum);
+		roundTimer = 10 + 0.5 * waveNum;
+		var spawnFoxes =  5 + waveNum * 2;
+		for (int i = 0; i < spawnFoxes; i++){
+			this.Spawner.AddFox(GD.Load<PackedScene>("res://Source/Entities/Fox/fox.tscn"));
+		}
+
+		waveNum++;
 	}
 
 	public int GetCurrency()
@@ -63,4 +78,5 @@ public partial class Game : Node2D
 	{
 		return Random.NextDouble();
 	}
+
 }

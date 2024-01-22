@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwffbvs0qeifs"]
+[gd_scene load_steps=15 format=3 uid="uid://cwffbvs0qeifs"]
 
 [ext_resource type="PackedScene" uid="uid://iafxldsnybig" path="res://Source/Game/Maps/Map.tscn" id="1_4c85n"]
 [ext_resource type="Script" path="res://Source/Game/States/TDState/Game.cs" id="1_gvxe0"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cq5ygcqvpnety" path="res://Source/UI/light_tower_panel.tscn" id="10_nrxjj"]
 [ext_resource type="PackedScene" uid="uid://v2wq6qe531kt" path="res://Source/UI/flame_tower_panel.tscn" id="11_8ah54"]
 [ext_resource type="PackedScene" uid="uid://caxadq6qmfh2q" path="res://Source/UI/lightning_tower_panel.tscn" id="12_t71ih"]
-[ext_resource type="PackedScene" uid="uid://dkyx5euq2ctml" path="res://Source/Entities/Towers/lightning_tower.tscn" id="13_gt4ed"]
-[ext_resource type="PackedScene" uid="uid://dgg11sfxr54fy" path="res://Source/Entities/Towers/flame_tower.tscn" id="13_lj4vs"]
 
 [sub_resource type="Curve2D" id="Curve2D_i5e8c"]
 _data = {
@@ -79,23 +77,8 @@ mix_target = 1
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="LightningTower" parent="Towers" instance=ExtResource("13_gt4ed")]
-position = Vector2(584, 374)
-
-[node name="FlameTower" parent="Towers" instance=ExtResource("13_lj4vs")]
-position = Vector2(131, 898)
-
 [node name="LightTower" parent="Towers" instance=ExtResource("9_g7wd6")]
-position = Vector2(452, 182)
-
-[node name="LightTower2" parent="Towers" instance=ExtResource("9_g7wd6")]
-position = Vector2(1327, 301)
-
-[node name="LightTower3" parent="Towers" instance=ExtResource("9_g7wd6")]
-position = Vector2(1301, 893)
-
-[node name="LightTower5" parent="Towers" instance=ExtResource("9_g7wd6")]
-position = Vector2(1721, 583)
+position = Vector2(585, 372)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 640.0
